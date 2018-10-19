@@ -1,0 +1,2 @@
+username,username_no_active,password,invalid_email_1,invalid_email_2,invalid_password,username_head,username_multi_time,password_multi_time,multi_time_loop
+@Common[username_1],@Common[username_3],@Common[password],a b c@yahoo.com,abc_yahoo.com,123456,kmstest2018,@Common[username_5],123456,20

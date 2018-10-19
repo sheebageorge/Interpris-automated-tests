@@ -1,0 +1,83 @@
+@import ..\header.gspec
+@import ..\baseContent.gspec
+@import ..\footer.gspec
+@import \fileOnUploadPage.gspec
+
+@objects
+    subpageWrapper          //*[contains(@class,'ant-tabs-content ant-tabs-content-no-animated')]
+    uploadPageWrapper       //div[contains(@class,'UploadPageWrapper')]
+    uploadToolBarWrapper    //*[@aria-hidden='false']//div[contains(@class,'ToolBarWrapper')]
+    draggerAndListWrapper   //*[@aria-hidden='false']//div[contains(@class,'LandingPageContentWrapper')]
+    titlePage               //a[contains(@class,'title')]
+    buttonDelete            //*[@aria-hidden='false']//div[contains(@class,'delete')]/button
+    dragger                 //div[contains(@class,'dragger')]
+    draggerWrapper          //div[contains(@class,'FileSelectionWrapper')]
+    dropzonIconAndTitle     //div[contains(@class,'dropzon')]/p
+    dropzonIcon             //div[contains(@class,'dropzon')]/p/span[1]
+    dropzonIconTitle        //div[contains(@class,'dropzon')]/p/span[2]
+    crossLine               //div[contains(@class,'ant-divider')]
+    buttonBrowse            //button[contains(@class,'browse-button')]
+    listFile                //*[contains(@class,'StyledListFile')]
+    fileItem-*              //*[contains(@class,'StyledListFile')]/div/div
+
+# By default refer from UL-61.sketch for desktop/mobile
+= Content =
+    = Tab Content =
+        uploadPageWrapper:
+            centered horizontally inside subpageWrapper
+        uploadToolBarWrapper:
+            inside uploadPageWrapper
+        # Title Page
+        titlePage:
+            inside uploadToolBarWrapper 0px left
+            text is "My Uploads"
+            @on desktop, tablet
+                css font-size is "20px"
+            @on mobile
+                css font-size is "16px"
+            css font-weight is "700"
+            css color is "rgba(74, 144, 226, 1)"
+        # Delete Icon button
+        buttonDelete:
+            inside uploadToolBarWrapper 0px right
+            css background-color is "rgb(249, 249, 249)"
+            css border-color is "rgb(233, 233, 233)"
+        # Dragger and List File(s) Wrapper
+        draggerAndListWrapper:
+            below uploadToolBarWrapper
+        # Dragger
+        dragger,listFile:
+            inside draggerAndListWrapper
+        draggerWrapper:
+            inside dragger
+            css background-color is "rgb(249, 249, 249)"
+        # Drop Icon and title
+        dropzonIcon,dropzonIconTitle:
+            inside dropzonIconAndTitle
+        dropzonIconTitle:
+            below dropzonIcon
+            text is "My Devices"
+        # check the line split between icon and the button in dropzon
+        crossLine:
+            width ~98% of dragger/width
+            below dropzonIconAndTitle
+            above buttonBrowse
+        # check "Browse files" button
+        buttonBrowse:
+            text is "Browse files"
+            css background-color is "rgba(24, 154, 214, 1)"
+            width ~131px
+            height 32px
+            @on desktop,tablet
+                near crossLine 17px bottom
+            @on mobile
+                near crossLine 6px bottom
+        # check list file(s)  
+        listFile:
+            contains fileItem-*
+            @on desktop,tablet
+                near dragger 30px bottom
+            @on mobile
+                near dragger 10px bottom
+
+

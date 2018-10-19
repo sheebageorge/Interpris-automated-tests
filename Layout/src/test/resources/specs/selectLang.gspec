@@ -1,0 +1,16 @@
+@objects
+    langDropdown    //div[contains(@class,'ant-select-dropdown')]
+    langName-*      //div[contains(@class,'ant-select-dropdown')]/div/ul/li
+
+@script
+    langMobile = ["English - AU","English - US","English - GB","English - INT"];
+    langDesktop = ["English - Australian", "English - North American", "English - British", "English - International"];
+
+= Check Select Langague =
+    @forEach [langName-*] as item, index as i
+        ${item}:
+            css color is "rgba(84, 105, 141, 1)"
+            @on monitor_1,ipadAir
+                text is "${langDesktop[i-1]}"
+            @on iphoneX
+                text is "${langMobile[i-1]}"

@@ -1,0 +1,4 @@
+@objects
+    footer                  //*[contains(@class,'layoutFooter')]
+= Footer =
+    footer:

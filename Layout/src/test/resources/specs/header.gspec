@@ -1,0 +1,46 @@
+@objects
+    header                  //*[contains(@class,'layoutHeader')]
+    headerContentWrapper    //*[contains(@class,'MenuWrapper')]
+    avatar                  //div[@class='avatar']
+    spanAvatar              //div[@class='avatar']/span/span    
+    infoWrapper             //*[contains(@class,'ant-popover Menu-Panel')]
+    arrowIcon               //*[contains(@class,'ant-popover Menu-Panel')]/div/div
+    infoContent             //ul[contains(@class,'Menu-Panel__list-menu')]
+    elementInfo-*           //ul[contains(@class,'Menu-Panel__list-menu')]/li
+
+@script
+    element = ["johnsmith@gmail.com","Log out"];
+
+# Use UL-534
+= Header =
+    # Header of Page
+    header:
+        width 100% of screen/width 
+        color-scheme ~ 10% #1172d0 
+        @on monitor_1, ipadAir
+            height ~83px
+        @on iphoneX
+            height ~94px
+    # Header Content Wrapper
+    headerContentWrapper:
+        centered horizontally inside header
+    # Avatar
+    avatar:
+        inside headerContentWrapper 8px right
+    spanAvatar:
+        width ~41px
+        height ~41px
+        on top right edge header
+        centered all inside avatar
+        
+    # if user click avatar, check infoWrapper
+    @if ${isVisible("infoWrapper")}
+        arrowIcon,infoContent:
+            inside infoWrapper
+        infoContent:
+            on top edge arrowIcon
+
+    # check element of avatar dropdown
+    @forEach [elementInfo-*] as item, index as i
+        ${item}:
+            text is "${element[i-1]}"

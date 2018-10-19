@@ -1,0 +1,22 @@
+@objects
+    content                 //*[contains(@class,'layoutContent')]
+    contentWrapper          //*[contains(@class,'ContentWrapper')]
+    menuTab                 //div[@role='tablist']
+    tab                     //div[contains(@class,'ant-tabs-nav ant-tabs-nav-animated')]
+    allTab                  //div[@role='tab'][1]
+    uploadTab               //div[@role='tab'][2]
+
+= Common Content Tab =
+    content:
+        below header
+        above footer
+    contentWrapper:
+        centered horizontally inside content
+    menuTab:
+        inside content 
+        above subpageWrapper
+    tab:
+        centered horizontally inside menuTab
+    allTab, uploadTab:
+        inside tab
+        visible

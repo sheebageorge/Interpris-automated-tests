@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\NUnit.3.10.1\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.10.1\build\NUnit.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{05A5ECE9-7862-4264-9D89-54B5A90195CD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Core</RootNamespace>
+    <AssemblyName>Core</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.2.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.2\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="CsvHelper, Version=7.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
+      <HintPath>..\packages\CsvHelper.7.1.1\lib\net45\CsvHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus, Version=4.5.2.1, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.5.2.1\lib\net40\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="MailKit, Version=2.0.0.0, Culture=neutral, PublicKeyToken=4e064fe7c44a8f1b, processorArchitecture=MSIL">
+      <HintPath>..\packages\MailKit.2.0.6\lib\net45\MailKit.dll</HintPath>
+    </Reference>
+    <Reference Include="MimeKit, Version=2.0.0.0, Culture=neutral, PublicKeyToken=bede1c8a46c66814, processorArchitecture=MSIL">
+      <HintPath>..\packages\MimeKit.2.0.6\lib\net45\MimeKit.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=3.10.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.10.1\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="RestSharp, Version=106.3.1.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.3.1\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WebDriver, Version=3.14.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.WebDriver.3.14.0\lib\net45\WebDriver.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver.Support, Version=3.14.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.Support.3.14.0\lib\net45\WebDriver.Support.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="APILibraries\APIClient.cs" />
+    <Compile Include="APILibraries\LoginToken.cs" />
+    <Compile Include="APILibraries\TranscriptData\Page.cs" />
+    <Compile Include="APILibraries\TranscriptData\Paragraph.cs" />
+    <Compile Include="APILibraries\TranscriptData\Snippet.cs" />
+    <Compile Include="APILibraries\TranscriptData\Speaker.cs" />
+    <Compile Include="APILibraries\TranscriptData\TimeSpan.cs" />
+    <Compile Include="APILibraries\TranscriptData\TranscriptJSONFile.cs" />
+    <Compile Include="BrowserStack\BSRemoteWebDriver.cs" />
+    <Compile Include="CommonUtilities\FileSystemUtils.cs" />
+    <Compile Include="CommonUtilities\ProcessUtils.cs" />
+    <Compile Include="CommonUtilities\RandomUtils.cs" />
+    <Compile Include="CommonUtilities\StringUtils.cs" />
+    <Compile Include="CommonUtilities\ThreadUtils.cs" />
+    <Compile Include="CommonUtilities\TranscriptTextUtils.cs" />
+    <Compile Include="DataProcessing\CSVFileUtils.cs" />
+    <Compile Include="DataProcessing\DataMappingsObject.cs" />
+    <Compile Include="DataProcessing\DataProvider.cs" />
+    <Compile Include="DataProcessing\ExcelFileUtils.cs" />
+    <Compile Include="DesktopAutomation\DownloadFileConfirmPanel\WebDownloadFileConfirmPanel.cs" />
+    <Compile Include="DesktopAutomation\DownloadFileConfirmPanel\WebDownloadFileConfirmPanelEdge.cs" />
+    <Compile Include="DesktopAutomation\DownloadFileConfirmPanel\WebDownloadFileConfirmPanelIE.cs" />
+    <Compile Include="DesktopAutomation\DownloadFileDialog\WebSaveAsFileDialog.cs" />
+    <Compile Include="DesktopAutomation\DownloadFileDialog\WebSaveAsFileDialogEdge.cs" />
+    <Compile Include="DesktopAutomation\DownloadFileDialog\WebSaveAsFileDialogIE.cs" />
+    <Compile Include="ProjectConfigParams.cs" />
+    <Compile Include="DesktopAutomation\DesktopWindowObject.cs" />
+    <Compile Include="DesktopAutomation\OpenFileDialog\WebOpenFileDialog.cs" />
+    <Compile Include="DesktopAutomation\OpenFileDialog\WebOpenFileDialogChrome.cs" />
+    <Compile Include="DesktopAutomation\OpenFileDialog\WebOpenFileDialogEdge.cs" />
+    <Compile Include="DesktopAutomation\OpenFileDialog\WebOpenFileDialogFirefox.cs" />
+    <Compile Include="DesktopAutomation\OpenFileDialog\WebOpenFileDialogIE.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Selenium\BasePage.cs" />
+    <Compile Include="Selenium\BaseWebObject.cs" />
+    <Compile Include="Selenium\BrowserConstants.cs" />
+    <Compile Include="Selenium\PageObjects\ExternalEmail\GmailPop3Client.cs" />
+    <Compile Include="Selenium\PageObjects\ExternalEmail\IEmailEmailPage.cs" />
+    <Compile Include="Selenium\PageObjects\ExternalEmail\IEmailHomePage.cs" />
+    <Compile Include="Selenium\PageObjects\ExternalEmail\SpamboxHomePage.cs" />
+    <Compile Include="Selenium\PageObjects\ExternalEmail\SpamboxEmailPage.cs" />
+    <Compile Include="Selenium\PageObjects\ExternalEmail\YopMailEmailPage.cs" />
+    <Compile Include="Selenium\PageObjects\ExternalEmail\YopMailHomePage.cs" />
+    <Compile Include="Selenium\PageObjects\AccountAuthenPages\ChangePasswordPage.cs" />
+    <Compile Include="Selenium\PageObjects\AccountAuthenPages\EmailVerificationConfirmPage.cs" />
+    <Compile Include="Selenium\PageObjects\Interpris\Platform\FooterSubPage.cs" />
+    <Compile Include="Selenium\PageObjects\Interpris\Transcription\GetStartedGuideSubPage.cs" />
+    <Compile Include="Selenium\PageObjects\Interpris\Platform\SuccessOrderSubPage.cs" />
+    <Compile Include="Selenium\PageObjects\Interpris\Platform\SignUpStepSixSubPage.cs" />
+    <Compile Include="Selenium\PageObjects\Interpris\Platform\SignUpStepFourSubPage.cs" />
+    <Compile Include="Selenium\PageObjects\Interpris\Platform\SignUpStepFiveSubPage.cs" />
+    <Compile Include="Selenium\PageObjects\Interpris\Platform\SignUpStepThreeSubPage.cs" />
+    <Compile Include="Selenium\PageObjects\Interpris\Platform\SignUpStepTwoSubPage.cs" />
+    <Compile Include="Selenium\PageObjects\Interpris\Platform\HeaderSubPage.cs" />
+    <Compile Include="Selenium\PageObjects\Interpris\Platform\PlatformHomePage.cs" />
+    <Compile Include="Selenium\PageObjects\Interpris\Platform\LoginPage.cs" />
+    <Compile Include="Selenium\PageObjects\Interpris\Platform\PortalPage.cs" />
+    <Compile Include="Selenium\PageObjects\Interpris\Transcription\ConfirmMessageSubPage.cs" />
+    <Compile Include="Selenium\PageObjects\Interpris\Transcription\TranscriptionHomePage.cs" />
+    <Compile Include="Selenium\PageObjects\Interpris\Transcription\LandingPage.cs" />
+    <Compile Include="Selenium\PageObjects\Interpris\Transcription\TranscribeEditorPage.cs" />
+    <Compile Include="Selenium\PageObjects\Interpris\Transcription\UploadPage.cs" />
+    <Compile Include="Selenium\PageObjects\Interpris\Transcription\ViewAllFilesPage.cs" />
+    <Compile Include="TestLibraries\PlatformUtils.cs" />
+    <Compile Include="TestLibraries\ViewAllFilesUtils.cs" />
+    <Compile Include="TestLibraries\UploadFileUtils.cs" />
+    <Compile Include="TestAttributes\PriorityAttribute.cs" />
+    <Compile Include="TestAttributes\StoryIDAttribute.cs" />
+    <Compile Include="TestAttributes\TestIDAttribute.cs" />
+    <Compile Include="TestBase\PlatformTestBase.cs" />
+    <Compile Include="TestBase\TranscriptionTestBase.cs" />
+    <Compile Include="TestBase\WebUITestBase.cs" />
+    <Compile Include="Selenium\PageObjects\Interpris\PageConstants.cs" />
+    <Compile Include="TranscriptFileLibraries\ExportedPlainTextTranscriptObject.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="UIAutomationClient">
+      <Guid>{944DE083-8FB8-45CF-BCB7-C477ACB2F897}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\NUnit.3.10.1\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.3.10.1\build\NUnit.props'))" />
+  </Target>
+</Project>

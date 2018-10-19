@@ -1,0 +1,34 @@
+@import ..\header.gspec
+@import ..\baseContent.gspec
+@import ..\footer.gspec
+@import \fileOnAllPage.gspec
+
+@objects
+    subpageWrapper          //*[contains(@class,'ant-tabs-content ant-tabs-content-no-animated')]
+    toolBarWrapper          //div[contains(@class,'ToolBarWrapper')]
+    buttonUpload            //*[@aria-hidden='false']//button[.='Upload']
+    buttonDelete            //*[@aria-hidden='false']//div[contains(@class,'delete')]/button
+    landingWrapper          //div[contains(@class,'LandingPageContentWrapper')]/div
+    fileItem-*              //*[@aria-hidden='false']//div[contains(@class,'LandingPageContentWrapper')]/div/div
+
+= Content =
+    = Tab Content =
+        toolBarWrapper:
+            centered horizontally inside subpageWrapper
+        # Upload Button
+        buttonUpload:
+            inside toolBarWrapper 
+            css background-color is "#407eff"
+            height 36px
+            width 96px
+        # Delete Button
+        buttonDelete:
+            inside toolBarWrapper 0px right
+            css background-color is "rgb(249, 249, 249)"
+            css border-color is "rgb(233, 233, 233)"
+        landingWrapper:
+            below toolBarWrapper 30px
+            contains fileItem-*
+
+
+

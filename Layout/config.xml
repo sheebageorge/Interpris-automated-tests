@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <entry key="TestDevices">./src/test/resources/devices.csv</entry>
+    <entry key="PageLoadTimeout">30</entry>
+    <entry key="SleepShortTime">5000</entry>
+    <entry key="BaseURL">https://uluru-transcription-dev.azurewebsites.net</entry>
+    <entry key="Browser">chrome</entry>
+    <entry key="Username">linh@yopmail.com</entry>
+    <entry key="Password">HelloWorld1</entry>
+    <entry key="ChromeDriver">./driver/windows/googlechrome/64bit/chromedriver.exe</entry>
+</properties>

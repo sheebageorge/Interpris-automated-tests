@@ -1,0 +1,2 @@
+email_prefix,email_domain,first_name,last_name,country,sector,organization,card_name,card_ccnumber,card_month,card_year,card_security_code,card_address_1,card_address_2,card_city,card_postal_code,card_country,card_state
+qsrUluru,@spambox.xyz,First name,Last name,Aruba,Commercial,QSR - KMS,KMS QA,4242424242424242,12,2022,123,123 ABC,123 ABCD,HCMC,700000,Viet Nam,HCM

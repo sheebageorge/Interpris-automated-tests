@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="LayoutTesting">
+	<test thread-count="5" name="UploadPageTest">
+		<classes>
+			<class name="com.qsrint.automation.ui.layout.tests.UploadPageTest" />
+		</classes>
+	</test>
+	<test thread-count="5" name="AllPageTest">
+		<classes>
+			<class name="com.qsrint.automation.ui.layout.tests.AllPageTest" />
+		</classes>
+	</test>
+</suite>

@@ -1,0 +1,56 @@
+@objects
+    fileItem-*              //*[@aria-hidden='false']//div[contains(@class,'LandingPageContentWrapper')]/div/div
+    iconNameFile-*          //*[@aria-hidden='false']//div[contains(@class,'fileHeaderstyle')]
+    iconFile-*              //*[@aria-hidden='false']//div[contains(@class,'icon')]
+    infoFileName-*          //*[@aria-hidden='false']//span[contains(@class,'file-info__name')]
+    infoState-*             //*[@aria-hidden='false']//span[contains(@class,'file-info__state')]
+    selectLang-*            //*[@aria-hidden='false']//div[contains(@class,'select-language-pack')]
+    audioLength-*           //*[@aria-hidden='false']//div[contains(@class,'duration')]
+    transStatus-*           //*[@aria-hidden='false']//span/span[.='Transcribe']
+    
+= File =
+    @forEach [fileItem-*] as item, index as i
+        ${item}:
+            width 100% of landingWrapper/width
+            @on monitor_1,ipadAir
+                height 60px
+            @on iphoneX
+                height 90px
+        
+        iconNameFile-${i}: 
+            @on monitor_1,ipadAir
+                inside ${item} ~15px left
+        
+        iconFile-${i}:
+            inside iconNameFile-${i} 0px left
+            height 32px
+        
+        infoFileName-${i},infoState-${i}:
+            inside iconNameFile-${i}
+        
+        infoFileName-${i}:
+            css font-size is "14px"
+            css font-weight is "700"
+            css color is "rgba(43, 48, 59, 1)"
+            above infoState-${i}
+        
+        infoState-${i}:
+            css font-size is "12px"
+            css font-weight is "700"
+            css color is "rgba(65, 117, 5, 1)"
+        
+        selectLang-${i}:
+            height 32px
+            @on iphoneX
+                below iconNameFile-${i} 
+                width 172px
+            @on monitor_1,ipadAir
+                left-of audioLength-${i}
+                width 216px
+
+        transStatus-${i}:
+            @on iphoneX
+                right-of selectLang-${i}
+                below audioLength-${i}
+            @on monitor_1,ipadAir
+                right-of audioLength-${i} 
