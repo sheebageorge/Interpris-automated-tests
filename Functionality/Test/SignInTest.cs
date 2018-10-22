@@ -22,12 +22,12 @@ namespace Automation.UI.Functionality.Test
     {
         #region Test Cases
         [Test]
-        [TestID(TestID.TC_ID_0008), StoryID(StoryID.SR_ID_002)]
+        [TestID(TestID.TC_ID_0001), StoryID(StoryID.SR_ID_001)]
         [Priority(PriorityLevel.Highest)]
         [TestCaseSource(typeof(DataProvider), "PrepareTestCases", new object[] { TestID.TC_ID_0008 })]
         public void TC_SIGN_IN_VerifyUserCanSignInWithActivatedAccount(Dictionary<string, string> Data)
         {
-            TestContext.Out.WriteLine("Start Test Case - {0}", TestID.TC_ID_0008);
+            TestContext.Out.WriteLine("Start Test Case - {0}", TestID.TC_ID_0001);
 
             LoginPage loginPage = new LoginPage(Driver, InterprisBaseURL);
             HeaderSubPage headerSubPage = new HeaderSubPage(Driver, InterprisBaseURL);
@@ -35,7 +35,7 @@ namespace Automation.UI.Functionality.Test
             // Verify sign in successfully with the activated account
             SignInSuccess(loginPage, headerSubPage, Data["username"], Data["password"]);
 
-            TestContext.Out.WriteLine("End Test Case - {0}", TestID.TC_ID_0008);
+            TestContext.Out.WriteLine("End Test Case - {0}", TestID.TC_ID_0001);
         }
         
         [Test]
