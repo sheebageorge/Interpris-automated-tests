@@ -92,7 +92,7 @@ namespace Automation.UI.Core.Selenium.PageObjects.Interpris.Transcription
         /// </summary>
         public void LogOut()
         {
-            (new HeaderSubPage(Driver, TranscriptionTestBase.TranscriptionBaseURL)).LogOut();
+            (new HeaderSubPage(Driver, InterprisTestBase.InterprisBaseURL)).LogOut();
         }
 
         /// <summary>
@@ -102,7 +102,7 @@ namespace Automation.UI.Core.Selenium.PageObjects.Interpris.Transcription
         /// <param name="password">Password to login</param>
         public void LogIn(string username, string password)
         {
-            (new HeaderSubPage(Driver, TranscriptionTestBase.TranscriptionBaseURL)).LogIn(username, password);
+            (new HeaderSubPage(Driver, InterprisTestBase.InterprisBaseURL)).LogIn(username, password);
         }
 
         /// <summary>

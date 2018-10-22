@@ -149,7 +149,7 @@
     <Compile Include="TestAttributes\StoryIDAttribute.cs" />
     <Compile Include="TestAttributes\TestIDAttribute.cs" />
     <Compile Include="TestBase\PlatformTestBase.cs" />
-    <Compile Include="TestBase\TranscriptionTestBase.cs" />
+    <Compile Include="TestBase\InterprisTestBase.cs" />
     <Compile Include="TestBase\WebUITestBase.cs" />
     <Compile Include="Selenium\PageObjects\Interpris\PageConstants.cs" />
     <Compile Include="TranscriptFileLibraries\ExportedPlainTextTranscriptObject.cs" />

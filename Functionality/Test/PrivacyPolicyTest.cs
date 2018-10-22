@@ -14,7 +14,7 @@ namespace Automation.UI.Functionality.Test
     /// Test Suite for Privacy Policy feature
     /// </summary>
     [TestFixture]
-    public class PrivacyPolicyTest : TranscriptionTestBase
+    public class PrivacyPolicyTest : InterprisTestBase
     {
         #region Test Cases
         [Test]
@@ -24,7 +24,7 @@ namespace Automation.UI.Functionality.Test
         {
             TestContext.Out.WriteLine("Start Test Case - {0}", TestID.TC_ID_0100);
 
-            LoginPage loginPage = new LoginPage(Driver, TranscriptionBaseURL);
+            LoginPage loginPage = new LoginPage(Driver, InterprisBaseURL);
 
             TestContext.Out.WriteLine("Go to Login Page");
             loginPage.Navigate();
@@ -51,7 +51,7 @@ namespace Automation.UI.Functionality.Test
         {
             TestContext.Out.WriteLine("Start Test Case - {0}", TestID.TC_ID_0101);
 
-            LoginPage loginPage = new LoginPage(Driver, TranscriptionBaseURL);
+            LoginPage loginPage = new LoginPage(Driver, InterprisBaseURL);
 
             TestContext.Out.WriteLine("Go to Login Page");
             loginPage.Navigate();
@@ -83,7 +83,7 @@ namespace Automation.UI.Functionality.Test
 
             TestContext.Out.WriteLine("Start Test Case - {0}", TestID.TC_ID_0102);
 
-            LoginPage loginPage = new LoginPage(Driver, TranscriptionBaseURL);
+            LoginPage loginPage = new LoginPage(Driver, InterprisBaseURL);
 
             TestContext.Out.WriteLine("Go to Login Page");
             loginPage.Navigate();

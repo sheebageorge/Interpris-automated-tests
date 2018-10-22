@@ -18,7 +18,7 @@ namespace Automation.UI.Functionality.Test
     /// Test Suite for reset password feature
     /// </summary>
     [TestFixture]
-    public class ResetPasswordTest : TranscriptionTestBase
+    public class ResetPasswordTest : InterprisTestBase
     {
         public const string NVIVO_RESET_PASSWORD_EMAIL_TITLE_1 = "NVivo Transcription | Change Password";
         public const string NVIVO_RESET_PASSWORD_EMAIL_TITLE_2 = "Reset your password";
@@ -35,8 +35,8 @@ namespace Automation.UI.Functionality.Test
         {
             TestContext.Out.WriteLine("Start Test Case - {0}", TestID.TC_ID_0031);
 
-            LoginPage loginPage = new LoginPage(Driver, TranscriptionBaseURL);
-            HeaderSubPage headerSubPage = new HeaderSubPage(Driver, TranscriptionBaseURL);
+            LoginPage loginPage = new LoginPage(Driver, InterprisBaseURL);
+            HeaderSubPage headerSubPage = new HeaderSubPage(Driver, InterprisBaseURL);
 
             TestContext.Out.WriteLine("Go to Login Page");
             loginPage.Navigate();
@@ -72,7 +72,7 @@ namespace Automation.UI.Functionality.Test
         {
             TestContext.Out.WriteLine("Start Test Case - {0}", TestID.TC_ID_0032);
 
-            LoginPage loginPage = new LoginPage(Driver, TranscriptionBaseURL);
+            LoginPage loginPage = new LoginPage(Driver, InterprisBaseURL);
 
             TestContext.Out.WriteLine("Go to Login Page");
             loginPage.Navigate();
@@ -93,7 +93,7 @@ namespace Automation.UI.Functionality.Test
         {
             TestContext.Out.WriteLine("Start Test Case - {0}", TestID.TC_ID_0033);
 
-            LoginPage loginPage = new LoginPage(Driver, TranscriptionBaseURL);
+            LoginPage loginPage = new LoginPage(Driver, InterprisBaseURL);
 
             TestContext.Out.WriteLine("Go to Login Page");
             loginPage.Navigate();
@@ -114,7 +114,7 @@ namespace Automation.UI.Functionality.Test
         {
             TestContext.Out.WriteLine("Start Test Case - {0}", TestID.TC_ID_0034);
 
-            LoginPage loginPage = new LoginPage(Driver, TranscriptionBaseURL);
+            LoginPage loginPage = new LoginPage(Driver, InterprisBaseURL);
 
             TestContext.Out.WriteLine("Go to Login Page");
             loginPage.Navigate();
@@ -178,7 +178,7 @@ namespace Automation.UI.Functionality.Test
         {
             TestContext.Out.WriteLine("Start Test Case - {0}", TestID.TC_ID_0035);
 
-            LoginPage loginPage = new LoginPage(Driver, TranscriptionBaseURL);
+            LoginPage loginPage = new LoginPage(Driver, InterprisBaseURL);
 
             TestContext.Out.WriteLine("Go to Login Page");
             loginPage.Navigate();

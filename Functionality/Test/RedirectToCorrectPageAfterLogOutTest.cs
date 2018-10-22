@@ -16,7 +16,7 @@ namespace Automation.UI.Functionality.Test
     /// Test Suite for Redirect To Correct Page After LogOut feature
     /// </summary>
     [TestFixture]
-    public class RedirectToCorrectPageAfterLogOutTest : TranscriptionTestBase
+    public class RedirectToCorrectPageAfterLogOutTest : InterprisTestBase
     {
         #region Test Cases
         [Test]
@@ -28,9 +28,9 @@ namespace Automation.UI.Functionality.Test
         {
             TestContext.Out.WriteLine("Start Test Case - {0}", TestID.TC_ID_0200);
 
-            ViewAllFilesPage viewAllFilesPage = new ViewAllFilesPage(Driver, TranscriptionBaseURL);
-            LoginPage loginPage = new LoginPage(Driver, TranscriptionBaseURL);
-            LandingPage landingPage = new LandingPage(Driver, TranscriptionBaseURL);
+            ViewAllFilesPage viewAllFilesPage = new ViewAllFilesPage(Driver, InterprisBaseURL);
+            LoginPage loginPage = new LoginPage(Driver, InterprisBaseURL);
+            LandingPage landingPage = new LandingPage(Driver, InterprisBaseURL);
 
             string platformLoginPageURL = new Uri(new Uri(PlatformBaseURL), "login").ToString();
 
@@ -82,9 +82,9 @@ namespace Automation.UI.Functionality.Test
         {
             TestContext.Out.WriteLine("Start Test Case - {0}", TestID.TC_ID_0201);
 
-            ViewAllFilesPage viewAllFilesPage = new ViewAllFilesPage(Driver, TranscriptionBaseURL);
-            LoginPage loginPage = new LoginPage(Driver, TranscriptionBaseURL);
-            LandingPage landingPage = new LandingPage(Driver, TranscriptionBaseURL);
+            ViewAllFilesPage viewAllFilesPage = new ViewAllFilesPage(Driver, InterprisBaseURL);
+            LoginPage loginPage = new LoginPage(Driver, InterprisBaseURL);
+            LandingPage landingPage = new LandingPage(Driver, InterprisBaseURL);
 
             PortalPage portalPage = new PortalPage(Driver, PlatformBaseURL);
             HeaderSubPage headerSubPage = new HeaderSubPage(Driver, PlatformBaseURL);

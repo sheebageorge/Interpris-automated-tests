@@ -12,10 +12,10 @@ namespace Automation.UI.Core.TestBase
     /// <summary>
     /// Base class of a Test Fixture to initilize the required entities
     /// </summary>
-    public class TranscriptionTestBase : WebUITestBaseClass
+    public class InterprisTestBase : WebUITestBaseClass
     {
         public static string PlatformBaseURL { get; set; }
-        public static string TranscriptionBaseURL { get; set; }
+        //public static string TranscriptionBaseURL { get; set; }
         public static string InterprisBaseURL { get; set; }
 
         #region SetUp/TearDown methods
@@ -37,11 +37,7 @@ namespace Automation.UI.Core.TestBase
 
             // get base URL
             PlatformBaseURL = ProjectConfigParams.GetConfigParamValue(
-                ProjectConfigParams.HEAD_CONF_KEY_PLATFORM_BASEURL + testEnv);
-
-            // get base URL
-            TranscriptionBaseURL = ProjectConfigParams.GetConfigParamValue(
-                ProjectConfigParams.HEAD_CONF_KEY_TRANSCRIPTION_BASEURL + testEnv);
+                ProjectConfigParams.HEAD_CONF_KEY_PLATFORM_BASEURL + testEnv);           
 
             // get base URL
             InterprisBaseURL = ProjectConfigParams.GetConfigParamValue(
@@ -111,12 +107,12 @@ namespace Automation.UI.Core.TestBase
                 if (Driver != null)
                 {
                     // go back to the base url
-                    if (!Driver.Url.Contains(TranscriptionBaseURL))
+                    if (!Driver.Url.Contains(InterprisBaseURL))
                     {
-                        Driver.Navigate().GoToUrl(TranscriptionBaseURL);
+                        Driver.Navigate().GoToUrl(InterprisBaseURL);
                     }
 
-                (new HeaderSubPage(Driver, TranscriptionBaseURL)).LogOut();
+                (new HeaderSubPage(Driver, InterprisBaseURL)).LogOut();
                 }
             }
             catch (WebDriverException wex)

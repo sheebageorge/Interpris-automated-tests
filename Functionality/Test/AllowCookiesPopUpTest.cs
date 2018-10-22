@@ -15,7 +15,7 @@ namespace Automation.UI.Functionality.Test
     /// Test Suite for Allow Cookies Pop-Up feature
     /// </summary>
     [TestFixture]
-    public class AllowCookiesPopUpTest : TranscriptionTestBase
+    public class AllowCookiesPopUpTest : InterprisTestBase
     {
         #region Test Cases
         [Test]
@@ -30,9 +30,9 @@ namespace Automation.UI.Functionality.Test
             Driver.Manage().Cookies.DeleteAllCookies();
 
             // Verify sign in successfully with the activated account
-            LoginPage loginPage = new LoginPage(Driver, TranscriptionBaseURL);
-            HeaderSubPage headerSubPage = new HeaderSubPage(Driver, TranscriptionBaseURL);
-            ViewAllFilesPage viewAllFilesPage = new ViewAllFilesPage(Driver, TranscriptionBaseURL);
+            LoginPage loginPage = new LoginPage(Driver, InterprisBaseURL);
+            HeaderSubPage headerSubPage = new HeaderSubPage(Driver, InterprisBaseURL);
+            ViewAllFilesPage viewAllFilesPage = new ViewAllFilesPage(Driver, InterprisBaseURL);
             PortalPage portalPage = new PortalPage(Driver, PlatformBaseURL);
 
             // wait for the Allow Cookies Pop-Up in some seconds

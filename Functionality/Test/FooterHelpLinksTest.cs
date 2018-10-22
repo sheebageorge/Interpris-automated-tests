@@ -14,7 +14,7 @@ namespace Automation.UI.Functionality.Test
     /// Test Suite for Footer Help link
     /// </summary>
     [TestFixture]
-    public class FooterHelpLinksTest : TranscriptionTestBase
+    public class FooterHelpLinksTest : InterprisTestBase
     {
         #region Test Cases
         [Test]
@@ -25,7 +25,7 @@ namespace Automation.UI.Functionality.Test
         {
             TestContext.Out.WriteLine("Start Test Case - {0}", TestID.TC_ID_0180);
 
-            (new HeaderSubPage(Driver, TranscriptionTestBase.TranscriptionBaseURL)).LogIn(Data["username"], Data["password"]);
+            (new HeaderSubPage(Driver, InterprisTestBase.InterprisBaseURL)).LogIn(Data["username"], Data["password"]);
 
             Dictionary<string, string> helpLinks =
                 new Dictionary<string, string>() {
@@ -37,9 +37,9 @@ namespace Automation.UI.Functionality.Test
                 };
 
             TestContext.Out.WriteLine("Verify the current open page");
-            Assert.IsTrue(Driver.Url.Contains(TranscriptionBaseURL));
+            Assert.IsTrue(Driver.Url.Contains(InterprisBaseURL));
 
-            OpenAndVerifyHelpLinks(TranscriptionBaseURL, helpLinks);
+            OpenAndVerifyHelpLinks(InterprisBaseURL, helpLinks);
 
             TestContext.Out.WriteLine("End Test Case - {0}", TestID.TC_ID_0180);
         }
@@ -52,7 +52,7 @@ namespace Automation.UI.Functionality.Test
         {
             TestContext.Out.WriteLine("Start Test Case - {0}", TestID.TC_ID_0181);
 
-            (new HeaderSubPage(Driver, TranscriptionTestBase.PlatformBaseURL)).LogIn(Data["username"], Data["password"]);
+            (new HeaderSubPage(Driver, InterprisTestBase.PlatformBaseURL)).LogIn(Data["username"], Data["password"]);
 
             Dictionary<string, string> helpLinks =
                 new Dictionary<string, string>() {

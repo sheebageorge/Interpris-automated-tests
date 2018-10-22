@@ -164,7 +164,7 @@ namespace Automation.UI.Core.Selenium.PageObjects.Interpris.Platform
         /// <param name="password">Input Password</param>
         public void InputLoginInfo(string username, string password)
         {
-            (new HeaderSubPage(Driver, BaseURL)).LogOut();
+            //(new HeaderSubPage(Driver, BaseURL)).LogOut();
             ALogInTab.WaitAndClick();
 
             InputEmail.SendKeys(username);

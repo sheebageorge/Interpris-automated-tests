@@ -15,7 +15,7 @@ namespace Automation.UI.Functionality.Test
     /// Test Suite for Log Out feature
     /// </summary>
     [TestFixture]
-    public class LogOutTest : TranscriptionTestBase
+    public class LogOutTest : InterprisTestBase
     {
         #region Test Cases
         [Test]
@@ -37,7 +37,7 @@ namespace Automation.UI.Functionality.Test
         {
             TestContext.Out.WriteLine("Start Test Case - {0}", TestID.TC_ID_0069);
 
-            ViewAllFilesPage viewAllFilesPage = new ViewAllFilesPage(Driver, TranscriptionBaseURL);
+            ViewAllFilesPage viewAllFilesPage = new ViewAllFilesPage(Driver, InterprisBaseURL);
 
             TestContext.Out.WriteLine("Go to the landing page and sign in");
             viewAllFilesPage.LogIn(Data["username"], Data["password"]);
@@ -49,7 +49,7 @@ namespace Automation.UI.Functionality.Test
             viewAllFilesPage.LogOut();
 
             TestContext.Out.WriteLine("Verify if the Log In page visible");
-            LoginPage loginPage = new LoginPage(Driver, TranscriptionBaseURL);
+            LoginPage loginPage = new LoginPage(Driver, InterprisBaseURL);
             Assert.IsTrue(loginPage.IsPageVisible(), "Cannot log out from All page!");
 
             TestContext.Out.WriteLine("End Test Case - {0}", TestID.TC_ID_0069);
@@ -63,7 +63,7 @@ namespace Automation.UI.Functionality.Test
         {
             TestContext.Out.WriteLine("Start Test Case - {0}", TestID.TC_ID_0071);
 
-            UploadPage updatePage = new UploadPage(Driver, TranscriptionBaseURL);
+            UploadPage updatePage = new UploadPage(Driver, InterprisBaseURL);
 
             TestContext.Out.WriteLine("Go to the landing page and sign in");
             updatePage.LogIn(Data["username"], Data["password"]);
@@ -78,7 +78,7 @@ namespace Automation.UI.Functionality.Test
             updatePage.LogOut();
 
             TestContext.Out.WriteLine("Verify if the Log In page visible");
-            LoginPage loginPage = new LoginPage(Driver, TranscriptionBaseURL);
+            LoginPage loginPage = new LoginPage(Driver, InterprisBaseURL);
             Assert.IsTrue(loginPage.IsPageVisible(), "Cannot log out from Upload page!");
 
             TestContext.Out.WriteLine("End Test Case - {0}", TestID.TC_ID_0071);
@@ -92,7 +92,7 @@ namespace Automation.UI.Functionality.Test
         {
             TestContext.Out.WriteLine("Start Test Case - {0}", TestID.TC_ID_0072);
 
-            ViewAllFilesPage viewAllFilesPage = new ViewAllFilesPage(Driver, TranscriptionBaseURL);
+            ViewAllFilesPage viewAllFilesPage = new ViewAllFilesPage(Driver, InterprisBaseURL);
 
             TestContext.Out.WriteLine("Go to the landing page and sign in");
             viewAllFilesPage.LogIn(Data["username"], Data["password"]);
@@ -104,7 +104,7 @@ namespace Automation.UI.Functionality.Test
             viewAllFilesPage.LogOut();
 
             TestContext.Out.WriteLine("Verify if the Log In page visible");
-            LoginPage loginPage = new LoginPage(Driver, TranscriptionBaseURL);
+            LoginPage loginPage = new LoginPage(Driver, InterprisBaseURL);
             Assert.IsTrue(loginPage.IsPageVisible(), "Cannot log out from All page!");
 
             // sleep for a while before going back
@@ -137,7 +137,7 @@ namespace Automation.UI.Functionality.Test
         {
             TestContext.Out.WriteLine("Start Test Case - {0}", TestID.TC_ID_0074);
 
-            ViewAllFilesPage viewAllFilesPage = new ViewAllFilesPage(Driver, TranscriptionBaseURL);
+            ViewAllFilesPage viewAllFilesPage = new ViewAllFilesPage(Driver, InterprisBaseURL);
 
             TestContext.Out.WriteLine("Go to the landing page and sign in");
             viewAllFilesPage.LogIn(Data["username"], Data["password"]);
@@ -164,7 +164,7 @@ namespace Automation.UI.Functionality.Test
             viewAllFilesPage.LogOut();
 
             TestContext.Out.WriteLine("Verify if the Log In page visible");
-            LoginPage loginPage = new LoginPage(Driver, TranscriptionBaseURL);
+            LoginPage loginPage = new LoginPage(Driver, InterprisBaseURL);
             Assert.IsTrue(loginPage.IsPageVisible(), "Cannot log out from homepage!");
 
             TestContext.Out.WriteLine("Go back to the first tab");

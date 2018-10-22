@@ -26,7 +26,7 @@ namespace Automation.UI.Core.Selenium.PageObjects.Interpris.Platform
             "//div[contains(@class,\"Menu-Panel\")]//li/a[.=\"Get Started Guide\"]";
         private readonly string btnLogOut =
             "//div[contains(@class,\"isoUserDropdown\")]//a[.=\"Logout\"]";
-        private readonly string divHeaderPanel = "//div[starts-with(@class,\"ant-layout-header\")]";
+        private readonly string divHeaderPanel = "//div[contains(@class,\"ant-layout-header\")]";
         private readonly string aNVivoLogo = "//div[contains(@class,\"header-content\")]//a[img[@class=\"logo\"]]";
         #endregion
 

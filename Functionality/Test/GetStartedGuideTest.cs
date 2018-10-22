@@ -15,7 +15,7 @@ namespace Automation.UI.Functionality.Test
     /// Test Suite for Get Started Guide feature
     /// </summary>
     [TestFixture]
-    public class GetStartedGuideTest : TranscriptionTestBase
+    public class GetStartedGuideTest : InterprisTestBase
     {
         #region Test Cases
         [Test]
@@ -27,8 +27,8 @@ namespace Automation.UI.Functionality.Test
         {
             TestContext.Out.WriteLine("Start Test Case - {0}", TestID.TC_ID_0196);
 
-            ViewAllFilesPage viewAllFilesPage = new ViewAllFilesPage(Driver, TranscriptionBaseURL);
-            HeaderSubPage headerSubPage = new HeaderSubPage(Driver, TranscriptionBaseURL);
+            ViewAllFilesPage viewAllFilesPage = new ViewAllFilesPage(Driver, InterprisBaseURL);
+            HeaderSubPage headerSubPage = new HeaderSubPage(Driver, InterprisBaseURL);
 
             TestContext.Out.WriteLine("Go to the landing page and sign in");
             viewAllFilesPage.LogIn(Data["username"], Data["password"]);
@@ -40,7 +40,7 @@ namespace Automation.UI.Functionality.Test
             headerSubPage.OpenGetStartedGuideBox();
             ThreadUtils.SleepShortTime();
 
-            GetStartedGuideSubPage getStartedGuideSubPage = new GetStartedGuideSubPage(Driver, TranscriptionBaseURL);
+            GetStartedGuideSubPage getStartedGuideSubPage = new GetStartedGuideSubPage(Driver, InterprisBaseURL);
 
             TestContext.Out.WriteLine("Verify Get Started Guide box visible");
             Assert.IsTrue(getStartedGuideSubPage.IsGetStartedGuideBoxVisible(),
@@ -83,8 +83,8 @@ namespace Automation.UI.Functionality.Test
         {
             TestContext.Out.WriteLine("Start Test Case - {0}", TestID.TC_ID_0197);
 
-            ViewAllFilesPage viewAllFilesPage = new ViewAllFilesPage(Driver, TranscriptionBaseURL);
-            HeaderSubPage headerSubPage = new HeaderSubPage(Driver, TranscriptionBaseURL);
+            ViewAllFilesPage viewAllFilesPage = new ViewAllFilesPage(Driver, InterprisBaseURL);
+            HeaderSubPage headerSubPage = new HeaderSubPage(Driver, InterprisBaseURL);
 
             // log in the Transcription page and wait some seconds for page loading
             ViewAllFilesUtils.LogInAndWaitForAllPageLoad(viewAllFilesPage, Data["username"], Data["password"]);
@@ -96,7 +96,7 @@ namespace Automation.UI.Functionality.Test
             headerSubPage.OpenGetStartedGuideBox();
             ThreadUtils.SleepShortTime();
 
-            GetStartedGuideSubPage getStartedGuideSubPage = new GetStartedGuideSubPage(Driver, TranscriptionBaseURL);
+            GetStartedGuideSubPage getStartedGuideSubPage = new GetStartedGuideSubPage(Driver, InterprisBaseURL);
 
             TestContext.Out.WriteLine("Verify Get Started Guide box visible");
             Assert.IsTrue(getStartedGuideSubPage.IsGetStartedGuideBoxVisible(),

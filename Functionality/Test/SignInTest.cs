@@ -18,7 +18,7 @@ namespace Automation.UI.Functionality.Test
     /// Test Suite for Sign In feature
     /// </summary>
     [TestFixture]
-    public class SignInTest : TranscriptionTestBase
+    public class SignInTest : InterprisTestBase
     {
         #region Test Cases
         [Test]
@@ -46,8 +46,8 @@ namespace Automation.UI.Functionality.Test
         {
             TestContext.Out.WriteLine("Start Test Case - {0}", TestID.TC_ID_0010);
 
-            LoginPage loginPage = new LoginPage(Driver, TranscriptionBaseURL);
-            HeaderSubPage headerSubPage = new HeaderSubPage(Driver, TranscriptionBaseURL);
+            LoginPage loginPage = new LoginPage(Driver, InterprisBaseURL);
+            HeaderSubPage headerSubPage = new HeaderSubPage(Driver, InterprisBaseURL);
 
             // Verify sign in successfully with the activated account
             SignInSuccess(loginPage, headerSubPage, Data["username"], Data["password"]);
@@ -113,8 +113,8 @@ namespace Automation.UI.Functionality.Test
                 {
                     TestContext.Out.WriteLine("Run test on other browsers");
 
-                    LoginPage loginPage = new LoginPage(testDriver, TranscriptionBaseURL);
-                    HeaderSubPage headerSubPage = new HeaderSubPage(testDriver, TranscriptionBaseURL);
+                    LoginPage loginPage = new LoginPage(testDriver, InterprisBaseURL);
+                    HeaderSubPage headerSubPage = new HeaderSubPage(testDriver, InterprisBaseURL);
 
                     // Verify sign in successfully with the activated account
                     SignInSuccess(loginPage, headerSubPage, Data["username"], Data["password"]);
@@ -157,7 +157,7 @@ namespace Automation.UI.Functionality.Test
         {
             TestContext.Out.WriteLine("Start Test Case - {0}", TestID.TC_ID_0012);
 
-            LoginPage loginPage = new LoginPage(Driver, TranscriptionBaseURL);
+            LoginPage loginPage = new LoginPage(Driver, InterprisBaseURL);
 
             string errorMessage = "";
 
@@ -222,7 +222,7 @@ namespace Automation.UI.Functionality.Test
         {
             TestContext.Out.WriteLine("Start Test Case - {0}", TestID.TC_ID_0013);
 
-            LoginPage loginPage = new LoginPage(Driver, TranscriptionBaseURL);
+            LoginPage loginPage = new LoginPage(Driver, InterprisBaseURL);
 
             // Verify sign in unsuccessfully
             SignInUnSuccess(loginPage, Data["username"], Data["invalid_password"],
@@ -239,7 +239,7 @@ namespace Automation.UI.Functionality.Test
         {
             TestContext.Out.WriteLine("Start Test Case - {0}", TestID.TC_ID_0014);
 
-            LoginPage loginPage = new LoginPage(Driver, TranscriptionBaseURL);
+            LoginPage loginPage = new LoginPage(Driver, InterprisBaseURL);
 
             // Verify sign in unsuccessfully
             SignInUnSuccess(loginPage, "invalid_" + Data["username"], Data["password"],
@@ -284,8 +284,8 @@ namespace Automation.UI.Functionality.Test
         {
             TestContext.Out.WriteLine("Start Test Case - {0}", TestID.TC_ID_0016);
 
-            LoginPage loginPage = new LoginPage(Driver, TranscriptionBaseURL);
-            LandingPage landingPage = new LandingPage(Driver, TranscriptionBaseURL);
+            LoginPage loginPage = new LoginPage(Driver, InterprisBaseURL);
+            LandingPage landingPage = new LandingPage(Driver, InterprisBaseURL);
 
             int iTry = int.Parse(Data["multi_time_loop"]);
 
