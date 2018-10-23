@@ -24,7 +24,7 @@ namespace Automation.UI.Functionality.Test
         [Test]
         [TestID(TestID.TC_ID_0001), StoryID(StoryID.SR_ID_001)]
         [Priority(PriorityLevel.Highest)]
-        [TestCaseSource(typeof(DataProvider), "PrepareTestCases", new object[] { TestID.TC_ID_0008 })]
+        [TestCaseSource(typeof(DataProvider), "PrepareTestCases", new object[] { TestID.TC_ID_0001 })]
         public void TC_SIGN_IN_VerifyUserCanSignInWithActivatedAccount(Dictionary<string, string> Data)
         {
             TestContext.Out.WriteLine("Start Test Case - {0}", TestID.TC_ID_0001);
@@ -37,8 +37,25 @@ namespace Automation.UI.Functionality.Test
 
             TestContext.Out.WriteLine("End Test Case - {0}", TestID.TC_ID_0001);
         }
-        
+
         [Test]
+        [TestID(TestID.TC_ID_0002), StoryID(StoryID.SR_ID_001)]
+        [Priority(PriorityLevel.Medium)]
+        [TestCaseSource(typeof(DataProvider), "PrepareTestCases", new object[] { TestID.TC_ID_0002 })]
+        public void TC_SIGN_IN_VerifyUserCannotSignInWithValidEmailAndInvalidPassword(Dictionary<string, string> Data)
+        {
+            TestContext.Out.WriteLine("Start Test Case - {0}", TestID.TC_ID_0002);
+
+            LoginPage loginPage = new LoginPage(Driver, InterprisBaseURL);
+
+            // Verify sign in unsuccessfully
+            SignInUnSuccess(loginPage, Data["username"], Data["invalid_password"],
+                LoginPage.ERR_MSG_SIGN_IN_INVALID_EMAIL_OR_PASSWORD);
+
+            TestContext.Out.WriteLine("End Test Case - {0}", TestID.TC_ID_0002);
+        }
+
+        /*[Test]
         [TestID(TestID.TC_ID_0010), StoryID(StoryID.SR_ID_002)]
         [Priority(PriorityLevel.High)]
         [TestCaseSource(typeof(DataProvider), "PrepareTestCases", new object[] { TestID.TC_ID_0010 })]
@@ -62,7 +79,8 @@ namespace Automation.UI.Functionality.Test
 
             TestContext.Out.WriteLine("End Test Case - {0}", TestID.TC_ID_0010);
         }
-
+        */
+        /*
         [Test]
         [TestID(TestID.TC_ID_0011), StoryID(StoryID.SR_ID_002)]
         [Priority(PriorityLevel.High)]
@@ -148,14 +166,32 @@ namespace Automation.UI.Functionality.Test
 
             TestContext.Out.WriteLine("End Test Case - {0}", TestID.TC_ID_0011);
         }
+        */
 
         [Test]
-        [TestID(TestID.TC_ID_0012), StoryID(StoryID.SR_ID_002)]
+        [TestID(TestID.TC_ID_0003), StoryID(StoryID.SR_ID_002)]
         [Priority(PriorityLevel.Medium)]
-        [TestCaseSource(typeof(DataProvider), "PrepareTestCases", new object[] { TestID.TC_ID_0012 })]
+        [TestCaseSource(typeof(DataProvider), "PrepareTestCases", new object[] { TestID.TC_ID_0003 })]
+        public void TC_SIGN_IN_VerifyUserCannotSignInWithInValidEmailAndValidPassword(Dictionary<string, string> Data)
+        {
+            TestContext.Out.WriteLine("Start Test Case - {0}", TestID.TC_ID_0003);
+
+            LoginPage loginPage = new LoginPage(Driver, InterprisBaseURL);
+
+            // Verify sign in unsuccessfully
+            SignInUnSuccess(loginPage, "invalid_" + Data["username"], Data["password"],
+                LoginPage.ERR_MSG_SIGN_IN_INVALID_EMAIL_OR_PASSWORD);
+
+            TestContext.Out.WriteLine("End Test Case - {0}", TestID.TC_ID_0003);
+        }
+
+        [Test]
+        [TestID(TestID.TC_ID_0004), StoryID(StoryID.SR_ID_001)]
+        [Priority(PriorityLevel.Medium)]
+        [TestCaseSource(typeof(DataProvider), "PrepareTestCases", new object[] { TestID.TC_ID_0004 })]
         public void TC_SIGN_IN_VerifyUserCannotSignedInWithIncorrectEmailAndCorrectPassword(Dictionary<string, string> Data)
         {
-            TestContext.Out.WriteLine("Start Test Case - {0}", TestID.TC_ID_0012);
+            TestContext.Out.WriteLine("Start Test Case - {0}", TestID.TC_ID_0004);
 
             LoginPage loginPage = new LoginPage(Driver, InterprisBaseURL);
 
@@ -211,78 +247,18 @@ namespace Automation.UI.Functionality.Test
             Assert.IsTrue(loginPage.IsValidateMessageInvalidEmaiVisible(errorMessage),
                 "Validate Message not visible.");
 
-            TestContext.Out.WriteLine("End Test Case - {0}", TestID.TC_ID_0012);
+            TestContext.Out.WriteLine("End Test Case - {0}", TestID.TC_ID_0004);
         }
 
-        [Test]
-        [TestID(TestID.TC_ID_0013), StoryID(StoryID.SR_ID_002)]
-        [Priority(PriorityLevel.Medium)]
-        [TestCaseSource(typeof(DataProvider), "PrepareTestCases", new object[] { TestID.TC_ID_0013 })]
-        public void TC_SIGN_IN_VerifyUserCannotSignInWithValidEmailAndInvalidPassword(Dictionary<string, string> Data)
-        {
-            TestContext.Out.WriteLine("Start Test Case - {0}", TestID.TC_ID_0013);
-
-            LoginPage loginPage = new LoginPage(Driver, InterprisBaseURL);
-
-            // Verify sign in unsuccessfully
-            SignInUnSuccess(loginPage, Data["username"], Data["invalid_password"],
-                LoginPage.ERR_MSG_SIGN_IN_INVALID_EMAIL_OR_PASSWORD);
-
-            TestContext.Out.WriteLine("End Test Case - {0}", TestID.TC_ID_0013);
-        }
-
-        [Test]
-        [TestID(TestID.TC_ID_0014), StoryID(StoryID.SR_ID_002)]
-        [Priority(PriorityLevel.Medium)]
-        [TestCaseSource(typeof(DataProvider), "PrepareTestCases", new object[] { TestID.TC_ID_0014 })]
-        public void TC_SIGN_IN_VerifyUserCannotSignInWithInValidEmailAndValidPassword(Dictionary<string, string> Data)
-        {
-            TestContext.Out.WriteLine("Start Test Case - {0}", TestID.TC_ID_0014);
-
-            LoginPage loginPage = new LoginPage(Driver, InterprisBaseURL);
-
-            // Verify sign in unsuccessfully
-            SignInUnSuccess(loginPage, "invalid_" + Data["username"], Data["password"],
-                LoginPage.ERR_MSG_SIGN_IN_INVALID_EMAIL_OR_PASSWORD);
-
-            TestContext.Out.WriteLine("End Test Case - {0}", TestID.TC_ID_0014);
-        }
-
-        [Test]
-        [TestID(TestID.TC_ID_0015), StoryID(StoryID.SR_ID_002)]
-        [Priority(PriorityLevel.Medium)]
-        public void TC_SIGN_IN_VerifyUserCannotSignInWithEmptyEmailAndPassword()
-        {
-            TestContext.Out.WriteLine("Start Test Case - {0}", TestID.TC_ID_0015);
-
-            LoginPage loginPage = new LoginPage(Driver, InterprisBaseURL);
-
-            TestContext.Out.WriteLine("Go to Login Page");
-            loginPage.Navigate();
-
-            TestContext.Out.WriteLine("Click Log In tab and Fill required information");
-            loginPage.InputLoginInfo("", "");
-
-            TestContext.Out.WriteLine("Get error messages from username and password");
-            string errorMsg = loginPage.GetUsernameErrorMessage();
-            Assert.IsTrue(errorMsg.Equals(LoginPage.ERR_MSG_USERNAME_EMPTY, StringComparison.OrdinalIgnoreCase),
-                "Invalid Username error message {0} not {1}", errorMsg, LoginPage.ERR_MSG_USERNAME_EMPTY);
-
-            errorMsg = loginPage.GetPasswordErrorMessage();
-            Assert.IsTrue(errorMsg.Equals(LoginPage.ERR_MSG_PASSWORD_EMPTY, StringComparison.OrdinalIgnoreCase),
-                "Invalid Password error message {0} not {1}", errorMsg, LoginPage.ERR_MSG_PASSWORD_EMPTY);
-
-            TestContext.Out.WriteLine("End Test Case - {0}", TestID.TC_ID_0015);
-        }
 
         [Test]
         [Ignore("Account blocking feature not available yet")]
-        [TestID(TestID.TC_ID_0016), StoryID(StoryID.SR_ID_002)]
+        [TestID(TestID.TC_ID_0006), StoryID(StoryID.SR_ID_001)]
         [Priority(PriorityLevel.High)]
-        [TestCaseSource(typeof(DataProvider), "PrepareTestCases", new object[] { TestID.TC_ID_0016 })]
+        [TestCaseSource(typeof(DataProvider), "PrepareTestCases", new object[] { TestID.TC_ID_0006 })]
         public void TC_SIGN_IN_VerifyUserisBlockedAfterTryingMultiAttempts(Dictionary<string, string> Data)
         {
-            TestContext.Out.WriteLine("Start Test Case - {0}", TestID.TC_ID_0016);
+            TestContext.Out.WriteLine("Start Test Case - {0}", TestID.TC_ID_0005);
 
             LoginPage loginPage = new LoginPage(Driver, InterprisBaseURL);
             LandingPage landingPage = new LandingPage(Driver, InterprisBaseURL);
@@ -321,8 +297,37 @@ namespace Automation.UI.Functionality.Test
                 "Inform message Sign Up not correct {0} not {1}.",
                 informMsgUI, LoginPage.ERR_MSG_ACCOUNT_MULTI_LOGIN_BLOCKED);
 
-            TestContext.Out.WriteLine("End Test Case - {0}", TestID.TC_ID_0016);
+            TestContext.Out.WriteLine("End Test Case - {0}", TestID.TC_ID_0006);
         }
+
+        [Test]
+        [TestID(TestID.TC_ID_0005), StoryID(StoryID.SR_ID_001)]
+        [Priority(PriorityLevel.Medium)]
+        public void TC_SIGN_IN_VerifyUserCannotSignInWithEmptyEmailAndPassword()
+        {
+            TestContext.Out.WriteLine("Start Test Case - {0}", TestID.TC_ID_0005);
+
+            LoginPage loginPage = new LoginPage(Driver, InterprisBaseURL);
+
+            TestContext.Out.WriteLine("Go to Login Page");
+            loginPage.Navigate();
+
+            TestContext.Out.WriteLine("Click Log In tab and Fill required information");
+            loginPage.InputLoginInfo("", "");
+
+            TestContext.Out.WriteLine("Get error messages from username and password");
+            string errorMsg = loginPage.GetUsernameErrorMessage();
+            Assert.IsTrue(errorMsg.Equals(LoginPage.ERR_MSG_USERNAME_EMPTY, StringComparison.OrdinalIgnoreCase),
+                "Invalid Username error message {0} not {1}", errorMsg, LoginPage.ERR_MSG_USERNAME_EMPTY);
+
+            errorMsg = loginPage.GetPasswordErrorMessage();
+            Assert.IsTrue(errorMsg.Equals(LoginPage.ERR_MSG_PASSWORD_EMPTY, StringComparison.OrdinalIgnoreCase),
+                "Invalid Password error message {0} not {1}", errorMsg, LoginPage.ERR_MSG_PASSWORD_EMPTY);
+
+            TestContext.Out.WriteLine("End Test Case - {0}", TestID.TC_ID_0005);
+        }
+
+        
         #endregion
 
         #region Public methods

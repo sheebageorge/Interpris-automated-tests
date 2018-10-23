@@ -5,16 +5,17 @@
     /// </summary>
     public class TestID
     {
-        #region Sign In TCs
+        #region Sign In Interpris
         public const string TC_ID_0001 = "TC_ID_0001"; // UP2P-255
-        public const string TC_ID_0009 = "TC_ID_0009"; // UL-380
-        public const string TC_ID_0010 = "TC_ID_0010"; // UL-382
-        public const string TC_ID_0011 = "TC_ID_0011"; // UL-385
-        public const string TC_ID_0012 = "TC_ID_0012"; // UL-386
-        public const string TC_ID_0013 = "TC_ID_0013"; // UL-388
-        public const string TC_ID_0014 = "TC_ID_0014"; // UL-389
-        public const string TC_ID_0015 = "TC_ID_0015"; // UL-390
-        public const string TC_ID_0016 = "TC_ID_0016"; // UL-391
+        public const string TC_ID_0002 = "TC_ID_0002"; // UP2P-256
+        public const string TC_ID_0003 = "TC_ID_0003"; // UP2P-257
+        public const string TC_ID_0004 = "TC_ID_0004"; // UP2P-258
+        public const string TC_ID_0005 = "TC_ID_0005"; // UP2P-259
+        public const string TC_ID_0006 = "TC_ID_0006"; // UP2P-301
+
+        //unused
+        //public const string TC_ID_0010 = "TC_ID_0010"; // UL-385
+        //public const string TC_ID_0011 = "TC_ID_0011"; // UL-385
         #endregion
 
         #region Select Transcription Language TCs
