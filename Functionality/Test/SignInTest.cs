@@ -220,7 +220,7 @@ namespace Automation.UI.Functionality.Test
 
 
         [Test]
-        [Ignore("Account blocking feature not available yet")]
+        //[Ignore("Account blocking feature not available yet")]
         [TestID(TestID.TC_ID_0006), StoryID(StoryID.SR_ID_001)]
         [Priority(PriorityLevel.High)]
         [TestCaseSource(typeof(DataProvider), "PrepareTestCases", new object[] { TestID.TC_ID_0006 })]
