@@ -169,7 +169,7 @@ namespace Automation.UI.Functionality.Test
         */
 
         [Test]
-        [TestID(TestID.TC_ID_0003), StoryID(StoryID.SR_ID_002)]
+        [TestID(TestID.TC_ID_0003), StoryID(StoryID.SR_ID_001)]
         [Priority(PriorityLevel.Medium)]
         [TestCaseSource(typeof(DataProvider), "PrepareTestCases", new object[] { TestID.TC_ID_0003 })]
         public void TC_SIGN_IN_VerifyUserCannotSignInWithInValidEmailAndValidPassword(Dictionary<string, string> Data)
@@ -210,42 +210,10 @@ namespace Automation.UI.Functionality.Test
             // sign in unsuccessfully
             SignInUnSuccess(loginPage, "new" + Data["username"], Data["password"], errorMessage);
 
-            switch (Browser)
-            {
-                case BrowserConstants.BROWSER_CHROME:
-                    TestContext.Out.WriteLine("Fill in invalid email 1");
-                    loginPage.InputLoginInfo(Data["invalid_email_1"], Data["password"]);
-
-                    ThreadUtils.SleepShortTime();
-
-                    TestContext.Out.WriteLine("Verify if the message displayed correctly");
-                    Assert.IsTrue(loginPage.IsValidateMessageInvalidEmaiVisible(LoginPage.ERR_MSG_GC_INVALID_EMAIL_TYPE_1),
-                        "Validate Message not visible.");
-
-                    errorMessage = LoginPage.ERR_MSG_GC_INVALID_EMAIL_TYPE_2;
-
-                    break;
-                case BrowserConstants.BROWSER_FIREFOX:
-                    errorMessage = LoginPage.ERR_MSG_FF_INVALID_EMAIL;
-                    break;
-                case BrowserConstants.BROWSER_IE:
-                case BrowserConstants.BROWSER_EDGE:
-                    errorMessage = LoginPage.ERR_MSG_IE_INVALID_EMAIL;
-                    break;
-                case BrowserConstants.BROWSER_SAFARI:
-                    break;
-                default:
-                    break;
-            }
-
-            TestContext.Out.WriteLine("Fill in invalid email 2");
-            loginPage.InputLoginInfo(Data["invalid_email_2"], Data["password"]);
-
-            ThreadUtils.SleepShortTime();
-
-            TestContext.Out.WriteLine("Verify if the message displayed correctly");
-            Assert.IsTrue(loginPage.IsValidateMessageInvalidEmaiVisible(errorMessage),
-                "Validate Message not visible.");
+            CheckValidEmailCombinations(loginPage, Data["invalid_email_1"], Data["password"], LoginPage.ERR_MSG_GC_INVALID_EMAIL_TYPE_1);
+            CheckValidEmailCombinations(loginPage, Data["invalid_email_2"], Data["password"], LoginPage.ERR_MSG_GC_INVALID_EMAIL_TYPE_2);
+            CheckValidEmailCombinations(loginPage, "@" + Data["invalid_email_2"], Data["password"], LoginPage.ERR_MSG_GC_INVALID_EMAIL_TYPE_3);
+            CheckValidEmailCombinations(loginPage, Data["invalid_email_2"] +"@" , Data["password"], LoginPage.ERR_MSG_GC_INVALID_EMAIL_TYPE_4);
 
             TestContext.Out.WriteLine("End Test Case - {0}", TestID.TC_ID_0004);
         }
@@ -258,7 +226,7 @@ namespace Automation.UI.Functionality.Test
         [TestCaseSource(typeof(DataProvider), "PrepareTestCases", new object[] { TestID.TC_ID_0006 })]
         public void TC_SIGN_IN_VerifyUserisBlockedAfterTryingMultiAttempts(Dictionary<string, string> Data)
         {
-            TestContext.Out.WriteLine("Start Test Case - {0}", TestID.TC_ID_0005);
+            TestContext.Out.WriteLine("Start Test Case - {0}", TestID.TC_ID_0006);
 
             LoginPage loginPage = new LoginPage(Driver, InterprisBaseURL);
             LandingPage landingPage = new LandingPage(Driver, InterprisBaseURL);
@@ -375,6 +343,34 @@ namespace Automation.UI.Functionality.Test
             TestContext.Out.WriteLine("Verify error message from Sign In page");
             Assert.IsTrue(informMsgUI.Equals(errorMessage, StringComparison.OrdinalIgnoreCase),
                 "Inform message Sign Up not correct {0} not {1}.", informMsgUI, errorMessage);
+        }
+
+        public static void CheckValidEmailCombinations(LoginPage loginPage, String username, String password, string errorMessage) {
+            switch (Browser)
+            {
+                case BrowserConstants.BROWSER_FIREFOX:
+                    errorMessage = LoginPage.ERR_MSG_FF_INVALID_EMAIL;
+                    break;
+                case BrowserConstants.BROWSER_IE:
+                case BrowserConstants.BROWSER_EDGE:
+                    errorMessage = LoginPage.ERR_MSG_IE_INVALID_EMAIL;
+                    break;
+                case BrowserConstants.BROWSER_SAFARI:
+                    break;
+                case BrowserConstants.BROWSER_CHROME:
+                default:
+                    break;
+            }
+
+            TestContext.Out.WriteLine("Fill in invalid email");
+            loginPage.InputLoginInfo(username, password);
+
+            ThreadUtils.SleepShortTime();
+
+            TestContext.Out.WriteLine("Verify if the message displayed correctly");
+            Assert.IsTrue(loginPage.IsValidateMessageInvalidEmaiVisible(errorMessage),
+                "Validate Message not visible.");
+
         }
         #endregion
     }

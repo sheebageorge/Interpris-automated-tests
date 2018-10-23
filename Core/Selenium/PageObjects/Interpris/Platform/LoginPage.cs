@@ -28,6 +28,9 @@ namespace Automation.UI.Core.Selenium.PageObjects.Interpris.Platform
 
         public const string ERR_MSG_GC_INVALID_EMAIL_TYPE_1 = "A part followed by '@' should not contain the symbol";
         public const string ERR_MSG_GC_INVALID_EMAIL_TYPE_2 = "Please include an '@' in the email address.";
+        public const string ERR_MSG_GC_INVALID_EMAIL_TYPE_3 = "Please enter a part followed by '@'.";
+        public const string ERR_MSG_GC_INVALID_EMAIL_TYPE_4 = "Please enter a part following '@'.";
+
         public const string ERR_MSG_FF_INVALID_EMAIL = "Please enter an email address.";
         public const string ERR_MSG_IE_INVALID_EMAIL = "You must enter a valid email address";
 
