@@ -4,7 +4,7 @@ using OpenQA.Selenium.Remote;
 using NUnit.Framework.Interfaces;
 using System;
 using Automation.UI.Core.Selenium;
-using Automation.UI.Core.Selenium.PageObjects.Interpris.Transcription;
+using Automation.UI.Core.Selenium.PageObjects.Interpris.Product;
 using Automation.UI.Core.Selenium.PageObjects.Interpris.Platform;
 
 namespace Automation.UI.Core.TestBase

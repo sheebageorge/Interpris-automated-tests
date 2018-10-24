@@ -125,7 +125,7 @@
     <Compile Include="Selenium\PageObjects\AccountAuthenPages\ChangePasswordPage.cs" />
     <Compile Include="Selenium\PageObjects\AccountAuthenPages\EmailVerificationConfirmPage.cs" />
     <Compile Include="Selenium\PageObjects\Interpris\Platform\FooterSubPage.cs" />
-    <Compile Include="Selenium\PageObjects\Interpris\Transcription\GetStartedGuideSubPage.cs" />
+    <Compile Include="Selenium\PageObjects\Interpris\Product\GetStartedGuideSubPage.cs" />
     <Compile Include="Selenium\PageObjects\Interpris\Platform\SuccessOrderSubPage.cs" />
     <Compile Include="Selenium\PageObjects\Interpris\Platform\SignUpStepSixSubPage.cs" />
     <Compile Include="Selenium\PageObjects\Interpris\Platform\SignUpStepFourSubPage.cs" />
@@ -136,12 +136,12 @@
     <Compile Include="Selenium\PageObjects\Interpris\Platform\PlatformHomePage.cs" />
     <Compile Include="Selenium\PageObjects\Interpris\Platform\LoginPage.cs" />
     <Compile Include="Selenium\PageObjects\Interpris\Platform\PortalPage.cs" />
-    <Compile Include="Selenium\PageObjects\Interpris\Transcription\ConfirmMessageSubPage.cs" />
-    <Compile Include="Selenium\PageObjects\Interpris\Transcription\TranscriptionHomePage.cs" />
-    <Compile Include="Selenium\PageObjects\Interpris\Transcription\LandingPage.cs" />
-    <Compile Include="Selenium\PageObjects\Interpris\Transcription\TranscribeEditorPage.cs" />
-    <Compile Include="Selenium\PageObjects\Interpris\Transcription\UploadPage.cs" />
-    <Compile Include="Selenium\PageObjects\Interpris\Transcription\ViewAllFilesPage.cs" />
+    <Compile Include="Selenium\PageObjects\Interpris\Product\ConfirmMessageSubPage.cs" />
+    <Compile Include="Selenium\PageObjects\Interpris\Product\TranscriptionHomePage.cs" />
+    <Compile Include="Selenium\PageObjects\Interpris\Product\LandingPage.cs" />
+    <Compile Include="Selenium\PageObjects\Interpris\Product\TranscribeEditorPage.cs" />
+    <Compile Include="Selenium\PageObjects\Interpris\Product\UploadPage.cs" />
+    <Compile Include="Selenium\PageObjects\Interpris\Product\ViewAllFilesPage.cs" />
     <Compile Include="TestLibraries\PlatformUtils.cs" />
     <Compile Include="TestLibraries\ViewAllFilesUtils.cs" />
     <Compile Include="TestLibraries\UploadFileUtils.cs" />

@@ -1,5 +1,5 @@
 ﻿using Automation.UI.Core.APILibraries.TranscriptData;
-using Automation.UI.Core.Selenium.PageObjects.Interpris.Transcription;
+using Automation.UI.Core.Selenium.PageObjects.Interpris.Product;
 using Automation.UI.Core.TranscriptFileLibraries;
 using System.Collections.Generic;
 using System.IO;

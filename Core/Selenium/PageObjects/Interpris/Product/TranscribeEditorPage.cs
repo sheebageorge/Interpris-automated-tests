@@ -5,7 +5,7 @@ using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 
-namespace Automation.UI.Core.Selenium.PageObjects.Interpris.Transcription
+namespace Automation.UI.Core.Selenium.PageObjects.Interpris.Product
 {
     public class TranscribeEditorPage : BasePage
     {

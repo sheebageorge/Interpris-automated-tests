@@ -7,7 +7,7 @@ using System.Linq;
 using OpenQA.Selenium.Remote;
 using NUnit.Framework;
 
-namespace Automation.UI.Core.Selenium.PageObjects.Interpris.Transcription
+namespace Automation.UI.Core.Selenium.PageObjects.Interpris.Product
 {
     /// <summary>
     /// contains all elements and actions for Upload Page

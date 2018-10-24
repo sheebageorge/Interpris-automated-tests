@@ -6,7 +6,7 @@ using Automation.UI.Core.CommonUtilities;
 using Automation.UI.Core.Selenium.PageObjects.Interpris.Platform;
 using Automation.UI.Core.TestBase;
 
-namespace Automation.UI.Core.Selenium.PageObjects.Interpris.Transcription
+namespace Automation.UI.Core.Selenium.PageObjects.Interpris.Product
 {
     /// <summary>
     /// Wrapper class of Landing (Home) Page

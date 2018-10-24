@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Automation.UI.Core.Selenium.PageObjects.Interpris.Transcription
+namespace Automation.UI.Core.Selenium.PageObjects.Interpris.Product
 {
     /// <summary>
     /// Wrapper class of Get Started Guide Sub Page

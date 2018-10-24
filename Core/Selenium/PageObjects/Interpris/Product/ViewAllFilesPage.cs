@@ -4,7 +4,7 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 using System.Collections.Generic;
 
-namespace Automation.UI.Core.Selenium.PageObjects.Interpris.Transcription
+namespace Automation.UI.Core.Selenium.PageObjects.Interpris.Product
 {
     /// <summary>
     /// contains all elements and actions for View All Files Page

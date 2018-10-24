@@ -1,6 +1,6 @@
 ﻿using Automation.UI.Core.CommonUtilities;
 using Automation.UI.Core.DesktopAutomation.OpenFileDialog;
-using Automation.UI.Core.Selenium.PageObjects.Interpris.Transcription;
+using Automation.UI.Core.Selenium.PageObjects.Interpris.Product;
 using Automation.UI.Core.TestBase;
 using NUnit.Framework;
 using System.Collections.Generic;

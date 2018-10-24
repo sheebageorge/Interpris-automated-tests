@@ -1,7 +1,7 @@
 ﻿using Automation.UI.Core.CommonUtilities;
 using Automation.UI.Core.DataProcessing;
 using Automation.UI.Core.Selenium.PageObjects.Interpris.Platform;
-using Automation.UI.Core.Selenium.PageObjects.Interpris.Transcription;
+using Automation.UI.Core.Selenium.PageObjects.Interpris.Product;
 using Automation.UI.Core.TestAttributes;
 using Automation.UI.Core.TestBase;
 using Automation.UI.Platform.TestAttributes;

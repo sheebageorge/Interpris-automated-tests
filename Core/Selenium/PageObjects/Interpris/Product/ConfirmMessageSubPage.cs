@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 
-namespace Automation.UI.Core.Selenium.PageObjects.Interpris.Transcription
+namespace Automation.UI.Core.Selenium.PageObjects.Interpris.Product
 {
     /// <summary>
     /// Wrapper class of Confirm Message Sub Page

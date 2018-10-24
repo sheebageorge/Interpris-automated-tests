@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 
-namespace Automation.UI.Core.Selenium.PageObjects.Interpris.Transcription
+namespace Automation.UI.Core.Selenium.PageObjects.Interpris.Product
 {
     public class TranscriptionHomePage : BasePage
     {
