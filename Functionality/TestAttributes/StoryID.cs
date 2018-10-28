@@ -6,8 +6,8 @@
     public class StoryID
     {
         public const string SR_ID_001 = "SR_ID_001"; // UP2P-12
-        public const string SR_ID_002 = "SR_ID_002"; // UL-202
-        public const string SR_ID_003 = "SR_ID_003"; // UL-275
+        public const string SR_ID_002 = "SR_ID_002"; // UP2P-13
+        public const string SR_ID_003 = "SR_ID_003"; // UP2P-14
         public const string SR_ID_004 = "SR_ID_004"; // UL-105
         public const string SR_ID_005 = "SR_ID_005"; // UL-197
         public const string SR_ID_006 = "SR_ID_006"; // UL-56

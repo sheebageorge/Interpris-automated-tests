@@ -125,6 +125,8 @@
     <Compile Include="Selenium\PageObjects\AccountAuthenPages\ChangePasswordPage.cs" />
     <Compile Include="Selenium\PageObjects\AccountAuthenPages\EmailVerificationConfirmPage.cs" />
     <Compile Include="Selenium\PageObjects\Interpris\Platform\FooterSubPage.cs" />
+    <Compile Include="Selenium\PageObjects\Interpris\Product\ThemesPage.cs" />
+    <Compile Include="Selenium\PageObjects\Interpris\Product\NavigatorPage.cs" />
     <Compile Include="Selenium\PageObjects\Interpris\Product\GetStartedGuideSubPage.cs" />
     <Compile Include="Selenium\PageObjects\Interpris\Platform\SuccessOrderSubPage.cs" />
     <Compile Include="Selenium\PageObjects\Interpris\Platform\SignUpStepSixSubPage.cs" />
@@ -137,6 +139,9 @@
     <Compile Include="Selenium\PageObjects\Interpris\Platform\LoginPage.cs" />
     <Compile Include="Selenium\PageObjects\Interpris\Platform\PortalPage.cs" />
     <Compile Include="Selenium\PageObjects\Interpris\Product\ConfirmMessageSubPage.cs" />
+    <Compile Include="Selenium\PageObjects\Interpris\Product\DashboardPage.cs" />
+    <Compile Include="Selenium\PageObjects\Interpris\Product\DataSourcesPage.cs" />
+    <Compile Include="Selenium\PageObjects\Interpris\Product\ViewsPage.cs" />
     <Compile Include="Selenium\PageObjects\Interpris\Product\TranscriptionHomePage.cs" />
     <Compile Include="Selenium\PageObjects\Interpris\Product\LandingPage.cs" />
     <Compile Include="Selenium\PageObjects\Interpris\Product\TranscribeEditorPage.cs" />

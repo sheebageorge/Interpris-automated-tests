@@ -5,17 +5,28 @@
     /// </summary>
     public class TestID
     {
-        #region Sign In Interpris
+        #region Sign In
         public const string TC_ID_0001 = "TC_ID_0001"; // UP2P-255
         public const string TC_ID_0002 = "TC_ID_0002"; // UP2P-256
         public const string TC_ID_0003 = "TC_ID_0003"; // UP2P-257
         public const string TC_ID_0004 = "TC_ID_0004"; // UP2P-258
         public const string TC_ID_0005 = "TC_ID_0005"; // UP2P-259
         public const string TC_ID_0006 = "TC_ID_0006"; // UP2P-301
+        #endregion
 
-        //unused
-        //public const string TC_ID_0010 = "TC_ID_0010"; // UL-385
-        //public const string TC_ID_0011 = "TC_ID_0011"; // UL-385
+        #region Views
+        public const string TC_ID_0050 = "TC_ID_0050"; // UP2P-408
+        public const string TC_ID_0051 = "TC_ID_0051"; // UP2P-409
+        public const string TC_ID_0052 = "TC_ID_0052"; // UP2P-410
+        public const string TC_ID_0053 = "TC_ID_0053"; // UP2P-411
+        public const string TC_ID_0054 = "TC_ID_0054"; // UP2P-422
+
+        public const string TC_ID_0056 = "TC_ID_0056"; // UP2P-373
+        public const string TC_ID_0057 = "TC_ID_0057"; // UP2P-374
+        #endregion
+
+        #region Import
+        public const string TC_ID_0100 = "TC_ID_0100"; // UP2P-260
         #endregion
 
         #region Select Transcription Language TCs
@@ -62,17 +73,16 @@
         public const string TC_ID_0024 = "TC_ID_0024"; // UL-335
         public const string TC_ID_0048 = "TC_ID_0048"; // UL-322
         public const string TC_ID_0049 = "TC_ID_0049"; // UL-323
-        public const string TC_ID_0050 = "TC_ID_0050"; // UL-324
-        public const string TC_ID_0051 = "TC_ID_0051"; // UL-325
-        public const string TC_ID_0052 = "TC_ID_0052"; // UL-326
-        public const string TC_ID_0053 = "TC_ID_0053"; // UL-327
-        public const string TC_ID_0054 = "TC_ID_0054"; // UL-328
-        public const string TC_ID_0055 = "TC_ID_0055"; // UL-329
-        public const string TC_ID_0056 = "TC_ID_0056"; // UL-596
+        //public const string TC_ID_0050 = "TC_ID_0050"; // UL-324
+        //public const string TC_ID_0051 = "TC_ID_0051"; // UL-325
+        //public const string TC_ID_0052 = "TC_ID_0052"; // UL-326
+        //public const string TC_ID_0053 = "TC_ID_0053"; // UL-327
+        //public const string TC_ID_0054 = "TC_ID_0054"; // UL-328
+        //public const string TC_ID_0055 = "TC_ID_0055"; // UL-329
+        //public const string TC_ID_0056 = "TC_ID_0056"; // UL-596
         #endregion
 
         #region View All Files TCs
-        public const string TC_ID_0057 = "TC_ID_0057"; // UL-336
         public const string TC_ID_0058 = "TC_ID_0058"; // UL-337
         public const string TC_ID_0059 = "TC_ID_0059"; // UL-338
         public const string TC_ID_0060 = "TC_ID_0060"; // UL-339
@@ -125,7 +135,7 @@
         #endregion
 
         #region Privacy Policy TCs
-        public const string TC_ID_0100 = "TC_ID_0100"; // UL-779
+        //public const string TC_ID_0100 = "TC_ID_0100"; // UL-779
         public const string TC_ID_0101 = "TC_ID_0101"; // UL-780
         public const string TC_ID_0102 = "TC_ID_0102"; // UL-781
         #endregion
@@ -154,14 +164,7 @@
         public const string TC_ID_0114 = "TC_ID_0114"; // UL-748
         #endregion
 
-        #region Calculate audio file length - happy path
-        public const string TC_ID_0115 = "TC_ID_0115"; // UL-1007
-        public const string TC_ID_0116 = "TC_ID_0116"; // UL-1008
-        public const string TC_ID_0117 = "TC_ID_0117"; // UL-1009
-        public const string TC_ID_0118 = "TC_ID_0118"; // UL-1010
-        public const string TC_ID_0119 = "TC_ID_0119"; // UL-1011
-        public const string TC_ID_0120 = "TC_ID_0120"; // UL-1012
-        #endregion
+        
 
         #region Update Speaker Tags
         public const string TC_ID_0135 = "TC_ID_0135"; // UL-1016
