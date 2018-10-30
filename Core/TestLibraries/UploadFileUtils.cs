@@ -66,39 +66,6 @@ namespace Automation.UI.Core.TestLibraries
         }
 
         /// <summary>
-        /// Upload a file in Upload File Tab
-        /// </summary>
-        /// <param name="browserType">Type of browser</param>
-        /// <param name="uploadPage">Upload page/Landing page</param>
-        /// <param name="folderPath">Folder of files to upload</param>
-        /// <param name="fileName">File Name</param>
-        public static void UploadOneFile(string browserType, UploadPage uploadPage,
-            string folderPath, string fileName)
-        {
-            TestContext.Out.WriteLine("Uploading file {0}", fileName);
-
-            if (!WebUITestBaseClass.BrowserStackEnabled)
-            {
-                TestContext.Out.WriteLine("Browse Files");
-                uploadPage.ActionMouseClick(uploadPage.ButtonBrowseFile);
-
-                ThreadUtils.SleepShortTime();
-
-                TestContext.Out.WriteLine("Open upload file folder to get the file list");
-                WebOpenFileDialog openFileDialog = WebOpenFileDialog.GetOpenDialog(WebUITestBaseClass.Browser);
-
-                TestContext.Out.WriteLine("Select file {0} to upload", fileName);
-                openFileDialog.SelectAFileByName(folderPath, fileName);
-            }
-            else
-            {
-                uploadPage.UploadFile(folderPath, fileName);
-            }
-
-            ThreadUtils.SleepShortTime();
-        }
-
-        /// <summary>
         /// Delete the file item if existing
         /// </summary>
         /// <param name="uploadPage">Upload page</param>

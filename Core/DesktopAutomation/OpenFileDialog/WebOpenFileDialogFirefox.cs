@@ -4,7 +4,7 @@ namespace Automation.UI.Core.DesktopAutomation.OpenFileDialog
 {
     public class WebOpenFileDialogFirefox: WebOpenFileDialog
     {
-        public const string WINDOW_TITLE = "NVivo Transcription - Mozilla Firefox";
+        public const string WINDOW_TITLE = "Interpris 2 - Mozilla Firefox";
 
         public WebOpenFileDialogFirefox() : base()
         {

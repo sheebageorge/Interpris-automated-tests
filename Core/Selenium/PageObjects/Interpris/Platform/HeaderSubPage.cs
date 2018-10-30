@@ -205,12 +205,12 @@ namespace Automation.UI.Core.Selenium.PageObjects.Interpris.Platform
             Navigate();
             ThreadUtils.SleepShortTime();
 
-            if (WaitForHeaderText(HOME_TEXT))
+            /*if (WaitForHeaderText(HOME_TEXT))
             {
                 LogOut();
                 ThreadUtils.SleepShortTime();
             }
-
+            */
             // Verify sign in successfully with the activated account
             LoginPage loginPage = new LoginPage(Driver, BaseURL);
 

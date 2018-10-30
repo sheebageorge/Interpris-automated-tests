@@ -4,7 +4,7 @@ namespace Automation.UI.Core.DesktopAutomation.OpenFileDialog
 {
     public class WebOpenFileDialogIE: WebOpenFileDialog
     {
-        public const string WINDOW_TITLE = "NVivo Transcription - Internet Explorer";
+        public const string WINDOW_TITLE = "Interpris 2 - Internet Explorer";
 
         public WebOpenFileDialogIE() : base()
         {
