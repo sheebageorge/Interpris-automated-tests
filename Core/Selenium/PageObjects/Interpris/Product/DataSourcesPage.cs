@@ -13,18 +13,21 @@ namespace Automation.UI.Core.Selenium.PageObjects.Interpris.Product
     /// Wrapper class of Views Page
     /// contains all elements and actions for the Views Page
     /// </summary>
-    public class DataSourcesPage: BasePage
+    public class DataSourcesPage : BasePage
     {
-      
+
         public const string IMPORT_TYPE_CSV = "csv";
         public const string IMPORT_TYPE_EXCEL = "excel";
+        public const int MAX_WAIT_FOR_IN_PROGRESS_FILE = 900; // wait uploading file for 15 minutes
 
         #region UI Objects
         private readonly string divPageName = "//div/div[@class=\"isoLeft\"]/span[text()=\"Data Sources\"]";
         private readonly string divLabelCSV = "//div[@class=\"btn-upload-area\"]//label[text()=\"CSV\"]";
         private readonly string divLabelExcel = "//div[@class=\"btn-upload-area\"]//label[text()=\"Excel\"]";
-        private const string btnImport = "//button[@data-tut=\"upload_button\"]";
-        private const string dialogImportReview = "//*[@id=\"rcDialogTitle6\"]";
+        private readonly string btnUpload = "//button[@data-tut=\"upload_button\"]";
+        private readonly string btnCancel = "//button[@data-tut=\"import-click-tour\"]/../button";
+        private readonly string btnImport = "//button[@data-tut=\"import-click-tour\"]";
+        private readonly string divImportedData = "//div[@data-tut=\"dropdown-tour\"]";
 
         #endregion
 
@@ -36,7 +39,9 @@ namespace Automation.UI.Core.Selenium.PageObjects.Interpris.Product
         public BaseWebObject DivPageName => FindWebElement(divPageName, true);
         public BaseWebObject DivLabelCSV => FindWebElement(divLabelCSV, true);
         public BaseWebObject DivLabelExcel => FindWebElement(divLabelExcel, true);
-        public BaseWebObject DialogImportReview => FindWebElement(dialogImportReview, true);
+        public BaseWebObject DivImportedData => FindWebElement(divImportedData, true);
+        public BaseWebObject BtnUpload => FindWebElement(btnUpload, true);
+        public BaseWebObject ButtonCancel => FindWebElement(btnCancel, true);
         public BaseWebObject ButtonImport => FindWebElement(btnImport, true);
         #endregion
 
@@ -49,7 +54,7 @@ namespace Automation.UI.Core.Selenium.PageObjects.Interpris.Product
         {
             return DivPageName.IsVisible;
         }
-        
+
         /// <summary>
         /// Log out of system
         /// </summary>
@@ -69,72 +74,37 @@ namespace Automation.UI.Core.Selenium.PageObjects.Interpris.Product
         }
 
         /// <summary>
-        /// Import File
+        /// Upload a file in Upload File Tab
         /// </summary>
-        /// <param name="fileNames">list of file name</param>
-        public void ImportFile(string type)
+        /// <param name="browserType">Type of browser</param>
+        /// <param name="folderPath">Folder of files to upload</param>
+        /// <param name="fileName">File Name</param>
+        public void UploadOneFile(string browserType, string folderPath, string fileName)
         {
-            try
-            {
-                ClickImportButton();
-                SelectImportType(type);
-                WaitForImportLoaded();
-            }
-            catch (Exception ex)
-            {
-                TestContext.Out.WriteLine("ImportFile ERR: {0}", ex.Message);
-            }
-        }
+            TestContext.Out.WriteLine("Importing file {0}", fileName);
 
-        public void WaitForImportLoaded(int MAX_WAIT = 50)
-        {
-            ThreadUtils.SleepShortTime();
-
-            int iCount = 0;
-            while (string.IsNullOrEmpty(DialogImportReview.Text.Trim()) && iCount < MAX_WAIT)
+            if (!WebUITestBaseClass.BrowserStackEnabled)
             {
-                iCount++;
-                ThreadUtils.SleepVeryShortTime();
+                TestContext.Out.WriteLine("Click Import");
+                BtnUpload.WaitAndClick();
+
+                ThreadUtils.SleepShortTime();
+
+                TestContext.Out.WriteLine("Select type csv");               
+                DivLabelCSV.WaitAndClick();
+
+                WebOpenFileDialog openFileDialog = WebOpenFileDialog.GetOpenDialog(WebUITestBaseClass.Browser);
+
+                TestContext.Out.WriteLine("Select file {0} to upload", fileName);
+                openFileDialog.SelectAFileByName(folderPath, fileName);
             }
-        }
-        
-        /// <summary>
-        /// Click Import button
-        /// </summary>
-        public void ClickImportButton()
-        {
-            TestContext.Out.WriteLine("Click Import button");
-            ButtonImport.Click();
+            else
+            {
+                //dsPage.UploadFile(folderPath, fileName);
+            }
+
             ThreadUtils.SleepShortTime();
         }
-
-        /// <summary>
-        /// Click Import button
-        /// </summary>
-        public void SelectImportType(string type)
-        {
-            TestContext.Out.WriteLine("Select import type : {0}", type);
-
-            switch (type)
-            {
-                case IMPORT_TYPE_EXCEL:
-                    DivLabelExcel.Click();
-                    break;
-                case IMPORT_TYPE_CSV:
-                case "default":                    
-                    DivLabelCSV.Click();
-                    WebOpenFileDialog openFileDialog = WebOpenFileDialog.GetOpenDialog(WebUITestBaseClass.Browser);
-                    string folderPath = "C:\\WorkDir\\source\\Interpris\\Automation.UI\\Functionality\\Data";
-                    string fileName = "DataMappings.csv";
-                    TestContext.Out.WriteLine("Select file {0} to upload", fileName);
-                    openFileDialog.SelectAFileByName(folderPath, fileName);
-                    break;
-            }
-            ThreadUtils.SleepLongTime();
-        }
-
-        
-
         #endregion
     }
 }

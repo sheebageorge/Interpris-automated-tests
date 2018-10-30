@@ -4,7 +4,7 @@ namespace Automation.UI.Core.DesktopAutomation.OpenFileDialog
 {
     public class WebOpenFileDialogEdge: WebOpenFileDialog
     {
-        public const string WINDOW_TITLE = "NVivo Transcription - Microsoft Edge";
+        public const string WINDOW_TITLE = "Interpris 2 - Microsoft Edge";
 
         public WebOpenFileDialogEdge(): base()
         {

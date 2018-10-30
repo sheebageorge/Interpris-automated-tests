@@ -4,7 +4,7 @@ namespace Automation.UI.Core.DesktopAutomation.OpenFileDialog
 {
     public class WebOpenFileDialogChrome : WebOpenFileDialog
     {
-        public const string WINDOW_TITLE = "NVivo Transcription - Google Chrome";
+        public const string WINDOW_TITLE = "Interpris 2 - Google Chrome";
 
         public WebOpenFileDialogChrome() : base()
         {
