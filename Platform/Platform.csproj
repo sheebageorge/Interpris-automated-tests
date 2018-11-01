@@ -70,8 +70,6 @@
     <Compile Include="Test\SignUpTest.cs" />
     <Compile Include="Test\SignUpWithEmailAndPasswordTest.cs" />
     <Compile Include="Test\AccessPortalPageTest.cs" />
-    <Compile Include="Test\ApplySingleUserAuthTest.cs" />
-    <Compile Include="Test\TranscriptionToPlatformAuth0Test.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

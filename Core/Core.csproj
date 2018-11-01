@@ -101,7 +101,7 @@
     <Compile Include="DesktopAutomation\DownloadFileConfirmPanel\WebDownloadFileConfirmPanel.cs" />
     <Compile Include="DesktopAutomation\DownloadFileConfirmPanel\WebDownloadFileConfirmPanelEdge.cs" />
     <Compile Include="DesktopAutomation\DownloadFileConfirmPanel\WebDownloadFileConfirmPanelIE.cs" />
-    <Compile Include="DesktopAutomation\DownloadFileConfirmPanel\WebSaveAsFileDialog.cs" />
+    <Compile Include="DesktopAutomation\DownloadFileDialog\WebSaveAsFileDialog.cs" />
     <Compile Include="DesktopAutomation\DownloadFileDialog\WebSaveAsFileDialogEdge.cs" />
     <Compile Include="DesktopAutomation\DownloadFileDialog\WebSaveAsFileDialogIE.cs" />
     <Compile Include="ProjectConfigParams.cs" />
@@ -145,10 +145,7 @@
     <Compile Include="Selenium\PageObjects\Interpris\Product\TranscriptionHomePage.cs" />
     <Compile Include="Selenium\PageObjects\Interpris\Product\LandingPage.cs" />
     <Compile Include="Selenium\PageObjects\Interpris\Product\TranscribeEditorPage.cs" />
-    <Compile Include="Selenium\PageObjects\Interpris\Product\UploadPage.cs" />
-    <Compile Include="Selenium\PageObjects\Interpris\Product\ViewAllFilesPage.cs" />
     <Compile Include="TestLibraries\PlatformUtils.cs" />
-    <Compile Include="TestLibraries\ViewAllFilesUtils.cs" />
     <Compile Include="TestLibraries\UploadFileUtils.cs" />
     <Compile Include="TestAttributes\PriorityAttribute.cs" />
     <Compile Include="TestAttributes\StoryIDAttribute.cs" />

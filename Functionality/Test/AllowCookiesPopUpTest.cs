@@ -32,7 +32,7 @@ namespace Automation.UI.Functionality.Test
             // Verify sign in successfully with the activated account
             LoginPage loginPage = new LoginPage(Driver, InterprisBaseURL);
             HeaderSubPage headerSubPage = new HeaderSubPage(Driver, InterprisBaseURL);
-            ViewAllFilesPage viewAllFilesPage = new ViewAllFilesPage(Driver, InterprisBaseURL);
+            //ViewAllFilesPage viewAllFilesPage = new ViewAllFilesPage(Driver, InterprisBaseURL);
             PortalPage portalPage = new PortalPage(Driver, PlatformBaseURL);
 
             // wait for the Allow Cookies Pop-Up in some seconds
@@ -73,8 +73,8 @@ namespace Automation.UI.Functionality.Test
             Assert.IsFalse(headerSubPage.WaitForAllowCookiesPanel(loginPage, maxWaitAllowCookiesPopUp));
 
             TestContext.Out.WriteLine("Try to open a Transcript File or create a new one");
-            ViewAllFilesUtils.OpenTranscriptFile(viewAllFilesPage,
-                Data["test_file_folder"], Data["test_audio_file_3"], Data["test_audio_lang_3"]);
+            //ViewAllFilesUtils.OpenTranscriptFile(viewAllFilesPage,
+            //    Data["test_file_folder"], Data["test_audio_file_3"], Data["test_audio_lang_3"]);
 
             TestContext.Out.WriteLine("Verify Allow Cookies Pop-up NOT displayed");
             Assert.IsFalse(headerSubPage.WaitForAllowCookiesPanel(loginPage, maxWaitAllowCookiesPopUp));
