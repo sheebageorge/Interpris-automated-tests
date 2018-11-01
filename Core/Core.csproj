@@ -101,7 +101,7 @@
     <Compile Include="DesktopAutomation\DownloadFileConfirmPanel\WebDownloadFileConfirmPanel.cs" />
     <Compile Include="DesktopAutomation\DownloadFileConfirmPanel\WebDownloadFileConfirmPanelEdge.cs" />
     <Compile Include="DesktopAutomation\DownloadFileConfirmPanel\WebDownloadFileConfirmPanelIE.cs" />
-    <Compile Include="DesktopAutomation\DownloadFileDialog\WebSaveAsFileDialog.cs" />
+    <Compile Include="DesktopAutomation\DownloadFileConfirmPanel\WebSaveAsFileDialog.cs" />
     <Compile Include="DesktopAutomation\DownloadFileDialog\WebSaveAsFileDialogEdge.cs" />
     <Compile Include="DesktopAutomation\DownloadFileDialog\WebSaveAsFileDialogIE.cs" />
     <Compile Include="ProjectConfigParams.cs" />

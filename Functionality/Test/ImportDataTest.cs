@@ -29,15 +29,11 @@ namespace Automation.UI.Functionality.Test
         {
             TestContext.Out.WriteLine("Start Test Case - {0}", TestID.TC_ID_0050);
 
-            LoginPage loginPage = new LoginPage(Driver, InterprisBaseURL);
-            //HeaderSubPage headerSubPage = new HeaderSubPage(Driver, InterprisBaseURL);
-            NavigatorPage navigatorPage = new NavigatorPage(Driver, InterprisBaseURL);
             DataSourcesPage dsPage = new DataSourcesPage(Driver, InterprisBaseURL);
 
             // Verify sign in successfully with the activated account
             dsPage.LogIn(Data["username"], Data["password"]);
-            navigatorPage.ActivateMenu(NavigatorPage.MENU_DATA_SOURCES);
-            Assert.IsTrue(dsPage.IsPageVisible());
+            ActivateView(dsPage);
 
             TestContext.Out.WriteLine("Click Import and cancel immidiately");
             dsPage.BtnUpload.WaitAndClick();
@@ -50,9 +46,34 @@ namespace Automation.UI.Functionality.Test
             
             TestContext.Out.WriteLine("End Test Case - {0}", TestID.TC_ID_0100);
         }
+
+        [Test]
+        [TestID(TestID.TC_ID_0101), StoryID(StoryID.SR_ID_002)]
+        [Priority(PriorityLevel.High)]
+        [TestCaseSource(typeof(DataProvider), "PrepareTestCases", new object[] { TestID.TC_ID_0101 })]
+        public void TC_IMPORT_AllowSingleFileSelection(Dictionary<string, string> Data)
+        {
+            TestContext.Out.WriteLine("Start Test Case - {0}", TestID.TC_ID_0050);
+
+            DataSourcesPage dsPage = new DataSourcesPage(Driver, InterprisBaseURL);
+            // Verify sign in successfully with the activated account
+            dsPage.LogIn(Data["username"], Data["password"]);
+            ActivateView(dsPage);
+
+            TestContext.Out.WriteLine("Click Import and cancel");
+            Assert.IsTrue(dsPage.IsMultiSelectEnabled() == 0);
+            TestContext.Out.WriteLine("End Test Case - {0}", TestID.TC_ID_0101);
+        }
         #endregion
 
         #region Public methods
+        public void ActivateView(DataSourcesPage dsPage)
+        {
+            NavigatorPage navigatorPage = new NavigatorPage(Driver, InterprisBaseURL);
+            TestContext.Out.WriteLine("Click on the menu - view");
+            navigatorPage.ActivateMenu(NavigatorPage.MENU_DATA_SOURCES);
+            Assert.IsTrue(dsPage.IsPageVisible());
+        }
         #endregion
     }
 }

@@ -12,36 +12,83 @@ namespace Automation.UI.Core.Selenium.PageObjects.Interpris.Product
     /// Wrapper class of Views Page
     /// contains all elements and actions for the Views Page
     /// </summary>
-    public class ViewsPage: BasePage
+    public class ViewsPage: LandingPage
     {
+        public override string PageName { get; protected set; } = "Views";
         #region UI Objects
-        private readonly string divPageName = "//div/div[@class=\"isoLeft\"]/span[text()=\"Views\"]";
+        private readonly string btnNewView = "//*/div[@class=\"btn-component\"]/button";
+        //private readonly string iRenameIcon = "//div[@class=\"isoEditData\"]";
+        private readonly string iRenameIcon = "//div[@class=\"isoEditData\"]//i[contains(@class, \"anticon-edit\")]";
+        private readonly string deleteIcon = "//td[@class=\"align-text-right\"]";
+        // private readonly string listThemes = "//body//div//ul[@role=\"listbox\"]/li[@role=\"option\"]";
+        //private readonly string divThemeDropDown = "//div[contains(@class, \"ant-select-selection__rendered\")]";
+        private readonly string trViews = "//table//tbody//tr";
+
         #endregion
 
-        public ViewsPage(IWebDriver driver, string baseURL) : base(driver, baseURL, PageConstants.INTERPRIS_PAGE_VIEW_URL) { }
+        public ViewsPage(IWebDriver driver, string baseURL) : base(driver, baseURL) { }
 
         #region Properties
-        public BaseWebObject DivPageName => FindWebElement(divPageName, true);
+        //public BaseWebObject DivThemeDropDown => FindWebElement(divThemeDropDown, true);
+        public BaseWebObject BtnNewView => FindWebElement(btnNewView, true);
+        public BaseWebObject IRenameIcon => FindWebElement(iRenameIcon, true);
+        public BaseWebObject DeleteIcon => FindWebElement(deleteIcon, true);
+        
+        public IList<BaseWebObject> TRViews => FindWebElements(trViews);       
+
         #endregion
 
         #region Methods
+        
         /// <summary>
-        /// Log out of system
+        /// Check if the Views page is active & displayed
         /// </summary>
-        public void LogOut()
+        /// <returns>True if the page displayed; otherwise, False</returns>
+        public void CreateView()
         {
-            (new HeaderSubPage(Driver, InterprisTestBase.InterprisBaseURL)).LogOut();
+            BtnNewView.Click();
+
+            
+
+            //open and close to trigger the population of existing themes
+            // DivThemeDropDown.Click();//open dropDown
+            //DivThemeDropDown.Click();//close dropDown
+
+            // foreach (BaseWebObject item in ListThemes)
+            // {
+            //    TestContext.Out.WriteLine(item.Text.Trim());   
+            //}
         }
 
         /// <summary>
-        /// Log in the system
+        /// Check if the Views page is active & displayed
         /// </summary>
-        /// <param name="username">Username to login</param>
-        /// <param name="password">Password to login</param>
-        public void LogIn(string username, string password)
+        /// <returns>True if the page displayed; otherwise, False</returns>
+        public void RenameView()
         {
-            (new HeaderSubPage(Driver, InterprisTestBase.InterprisBaseURL)).LogIn(username, password);
+            //IRenameIcon.Click();
+            DeleteIcon.Click();
+            ThreadUtils.SleepMediumTime();
+
+            //open and close to trigger the population of existing themes
+            // DivThemeDropDown.Click();//open dropDown
+            //DivThemeDropDown.Click();//close dropDown
+
+            // foreach (BaseWebObject item in ListThemes)
+            // {
+            //    TestContext.Out.WriteLine(item.Text.Trim());   
+            //}
         }
+
+        public void FindView(String viewName, Boolean exactMatch)
+        {
+            Boolean found = false;
+             foreach (BaseWebObject row in TRViews)
+             {
+                //row 
+            }
+        }
+
         #endregion
     }
 }

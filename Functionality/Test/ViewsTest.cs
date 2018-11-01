@@ -29,17 +29,13 @@ namespace Automation.UI.Functionality.Test
         {
             TestContext.Out.WriteLine("Start Test Case - {0}", TestID.TC_ID_0050);
 
-            LoginPage loginPage = new LoginPage(Driver, InterprisBaseURL);
-            HeaderSubPage headerSubPage = new HeaderSubPage(Driver, InterprisBaseURL);
-            NavigatorPage navigatorPage = new NavigatorPage(Driver, InterprisBaseURL);
+            ViewsPage viewsPage = new ViewsPage(Driver, InterprisBaseURL);
+            viewsPage.LogIn(Data["username"], Data["password"]);
+            ActivateView();
+            Assert.IsTrue(viewsPage.IsPageVisible());
 
-            // Verify sign in successfully with the activated account
-            SignInSuccess(loginPage, headerSubPage, Data["username"], Data["password"]);
+            TestContext.Out.WriteLine("Click delete icon and cancel delete");
 
-
-
-            navigatorPage.ActivateMenu(NavigatorPage.MENU_VIEWS);
-            navigatorPage.ActivateMenu(NavigatorPage.MENU_THEMES);
             TestContext.Out.WriteLine("End Test Case - {0}", TestID.TC_ID_0050);
         }
         #endregion
@@ -52,41 +48,40 @@ namespace Automation.UI.Functionality.Test
         public void TC_VIEW_CreateViewManually(Dictionary<string, string> Data)
         {
             TestContext.Out.WriteLine("Start Test Case - {0}", TestID.TC_ID_0051);
-
-            LoginPage loginPage = new LoginPage(Driver, InterprisBaseURL);
-            HeaderSubPage headerSubPage = new HeaderSubPage(Driver, InterprisBaseURL);
-            NavigatorPage navigatorPage = new NavigatorPage(Driver, InterprisBaseURL);
-
-            SignInSuccess(loginPage, headerSubPage, Data["username"], Data["password"]);
-            TestContext.Out.WriteLine("Click on the menu - view");
-
-            navigatorPage.ActivateMenu(NavigatorPage.MENU_VIEWS);
-
-            TestContext.Out.WriteLine("Click on the menu - themes");
-            navigatorPage.ActivateMenu(NavigatorPage.MENU_THEMES);
+            ViewsPage viewsPage = new ViewsPage(Driver, InterprisBaseURL);
+            viewsPage.LogIn(Data["username"], Data["password"]);
+            ActivateView();
+            Assert.IsTrue(viewsPage.IsPageVisible());
+            viewsPage.CreateView();
             TestContext.Out.WriteLine("End Test Case - {0}", TestID.TC_ID_0051);
+        }
+
+        [Test]
+        [TestID(TestID.TC_ID_0050), StoryID(StoryID.SR_ID_003)]
+        [Priority(PriorityLevel.High)]
+        [TestCaseSource(typeof(DataProvider), "PrepareTestCases", new object[] { TestID.TC_ID_0001 })]
+        public void TC_VIEW_RenameView(Dictionary<string, string> Data)
+        {
+            TestContext.Out.WriteLine("Start Test Case - {0}", TestID.TC_ID_0050);
+            LoginPage loginPage = new LoginPage(Driver, InterprisBaseURL);
+            NavigatorPage navigatorPage = new NavigatorPage(Driver, InterprisBaseURL);
+            ViewsPage viewsPage = new ViewsPage(Driver, InterprisBaseURL);
+            viewsPage.LogIn(Data["username"], Data["password"]);
+            TestContext.Out.WriteLine("Click on the menu - view");
+            navigatorPage.ActivateMenu(NavigatorPage.MENU_VIEWS);
+            Assert.IsTrue(viewsPage.IsPageVisible());
+            viewsPage.RenameView();
+            TestContext.Out.WriteLine("End Test Case - {0}", TestID.TC_ID_0050);
         }
         #endregion
         #region Public methods
-        /// <summary>
-        /// Try to log in with valid username and password
-        /// Expect to get in the Landing page
-        /// </summary>
-        /// <param name="loginPage">Login page</param>
-        /// <param name="landingPage">Landing page</param>
-        /// <param name="username">Valid username</param>
-        /// <param name="password">Valid password</param>
-        public static void SignInSuccess(LoginPage loginPage, HeaderSubPage headerSubPage,
-            string username, string password)
+
+        public void ActivateView()
         {
-            TestContext.Out.WriteLine("Go to Login Page");
-            loginPage.Navigate();
-
-            TestContext.Out.WriteLine("Click Log In tab and Fill required information");
-            loginPage.InputLoginInfo(username, password);
-
-            TestContext.Out.WriteLine("Verify landed to Home Page");
-            Assert.IsTrue(headerSubPage.TextHomeScreen != null, "Home text is not visible");
+            NavigatorPage navigatorPage = new NavigatorPage(Driver, InterprisBaseURL);
+            TestContext.Out.WriteLine("Click on the menu - view");
+            navigatorPage.ActivateMenu(NavigatorPage.MENU_VIEWS);
+            
         }
         #endregion
     }

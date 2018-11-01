@@ -44,6 +44,7 @@ namespace Automation.UI.Core.DesktopAutomation.OpenFileDialog
         private IUIAutomationElement _FileInputText = null;
         private IUIAutomationElement _OpenButton = null;
         private IUIAutomationElement _CancelButton = null;
+        private IUIAutomationElement _FileItemsView = null;
         private IUIAutomationElementArray _FileItems = null;
         #endregion
 
@@ -61,7 +62,10 @@ namespace Automation.UI.Core.DesktopAutomation.OpenFileDialog
                 GetUIAutomation().CreatePropertyCondition(propertyIdName, "Cancel"),
                 GetUIAutomation().CreatePropertyCondition(propertyIdClassName, "Button"));
 
-            fileListViewCondition = GetUIAutomation().CreatePropertyCondition(propertyIdClassName, "UIItemsView");
+            fileListViewCondition = GetUIAutomation().CreateAndCondition(
+            GetUIAutomation().CreatePropertyCondition(propertyIdName, "Items View"),
+            GetUIAutomation().CreatePropertyCondition(propertyIdClassName, "UIItemsView"));
+            //fileListViewCondition = GetUIAutomation().CreatePropertyCondition(propertyIdClassName, "UIItemsView");
 
             fileItemCondition = GetUIAutomation().CreatePropertyCondition(propertyIdClassName, "UIItem");
         }
@@ -75,7 +79,6 @@ namespace Automation.UI.Core.DesktopAutomation.OpenFileDialog
                     _FileInputText = GetChildNodeElement(openDialog, TreeScope.TreeScope_Descendants,
                         fileInputTextCondition, cacheRequestValueItemPattern);
                 }
-
                 return _FileInputText;
             }
         }
@@ -101,6 +104,19 @@ namespace Automation.UI.Core.DesktopAutomation.OpenFileDialog
                         cancelButtonCondition, cacheRequestInvokePattern);
                 }
                 return _CancelButton;
+            }
+        }
+
+        public IUIAutomationElement FileItemsView
+        {
+            get
+            {
+                if (_FileItemsView == null)
+                {
+                    _FileItemsView = GetChildNodeElement(openDialog, TreeScope.TreeScope_Descendants,
+                        fileListViewCondition, cacheRequestSelectionPattern);
+                }
+                return _FileItemsView;
             }
         }
 
@@ -199,6 +215,23 @@ namespace Automation.UI.Core.DesktopAutomation.OpenFileDialog
 
             // click open button
             InvokeAutomationElement(OpenButton);
+        }
+
+        /// <summary>
+        /// Check to see is multiple selection is enabled on the open dialog
+        /// </summary>
+        public int IsMultiSelectEnabled()
+        {
+            return IsMultiSelectEnabled(FileItemsView);
+        }
+
+        /// <summary>
+        /// Close/cancel dialog
+        /// </summary>
+        public void Cancel()
+        {
+            // click cancel button
+            InvokeAutomationElement(CancelButton);
         }
         #endregion
     }

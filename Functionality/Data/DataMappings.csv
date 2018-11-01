@@ -45,6 +45,7 @@ TC_ID_0072,Excel,AllTestSuitesDataSet.xlsx,LogOutData
 TC_ID_0073,Excel,AllTestSuitesDataSet.xlsx,LogOutData
 TC_ID_0074,Excel,AllTestSuitesDataSet.xlsx,LogOutData
 TC_ID_0100,Excel,AllTestSuitesDataSet.xlsx,ImportFileData
+TC_ID_0101,Excel,AllTestSuitesDataSet.xlsx,ImportFileData
 TC_ID_0102,Excel,AllTestSuitesDataSet.xlsx,PrivacyPolicyData
 TC_ID_0114,Excel,AllTestSuitesDataSet.xlsx,LogOutData
 TC_ID_0180,Excel,AllTestSuitesDataSet.xlsx,HelpLinks

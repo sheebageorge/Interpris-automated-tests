@@ -18,11 +18,13 @@ namespace Automation.UI.Core.DesktopAutomation
         // pattern ids
         protected readonly int patternIdInvoke = 10000; // UIA_InvokePatternId
         protected readonly int patternIdSelectionItem = 10010; // UIA_SelectionItemPatternId
+        protected readonly int patternIdSelection = 10001; // UIA_SelectionPatternId
         protected readonly int patternIdValueItem = 10002; // UIA_ValuePatternId
 
         // request pattern objects
         protected IUIAutomationCacheRequest cacheRequestInvokePattern = null;
         protected IUIAutomationCacheRequest cacheRequestSelectionItemPattern = null;
+        protected IUIAutomationCacheRequest cacheRequestSelectionPattern = null;
         protected IUIAutomationCacheRequest cacheRequestInvokeSelectPattern = null;
         protected IUIAutomationCacheRequest cacheRequestValueItemPattern = null;
 
@@ -46,6 +48,9 @@ namespace Automation.UI.Core.DesktopAutomation
 
             cacheRequestSelectionItemPattern = GetUIAutomation().CreateCacheRequest();
             cacheRequestSelectionItemPattern.AddPattern(patternIdSelectionItem);
+
+            cacheRequestSelectionPattern = GetUIAutomation().CreateCacheRequest();
+            cacheRequestSelectionPattern.AddPattern(patternIdSelection);
 
             cacheRequestInvokeSelectPattern = GetUIAutomation().CreateCacheRequest();
             cacheRequestInvokeSelectPattern.AddPattern(patternIdInvoke);
@@ -221,6 +226,7 @@ namespace Automation.UI.Core.DesktopAutomation
             IUIAutomationSelectionItemPattern selectionPattern = automationElement.GetCachedPattern(
                 patternIdSelectionItem);
             selectionPattern.Select();
+
         }
 
         /// <summary>
@@ -230,8 +236,18 @@ namespace Automation.UI.Core.DesktopAutomation
         public void SelectMultiAutomationElement(IUIAutomationElement automationElement)
         {
             IUIAutomationSelectionItemPattern selectionPattern = automationElement.GetCachedPattern(
-                patternIdSelectionItem);
+                patternIdSelectionItem);           
             selectionPattern.AddToSelection();
+        }
+
+        /// <summary>
+        /// Read the multiple selection property of the automation element
+        /// </summary>
+        /// <param name="automationElement">UI automation element</param>
+        public int IsMultiSelectEnabled(IUIAutomationElement automationElement)
+        {
+            IUIAutomationSelectionPattern selectionPattern = automationElement.GetCachedPattern(patternIdSelection);
+            return selectionPattern.CurrentCanSelectMultiple;
         }
 
         ///--------------------------------------------------------------------
