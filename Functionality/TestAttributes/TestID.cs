@@ -28,6 +28,7 @@
         #region Import UP2P-13
         public const string TC_ID_0100 = "TC_ID_0100"; // UP2P-260
         public const string TC_ID_0101 = "TC_ID_0101"; // UP2P-261
+        public const string TC_ID_0105 = "TC_ID_0105"; // UP2P-265
         #endregion
 
         #region Select Transcription Language TCs
@@ -144,7 +145,6 @@
         #region View Transcript Text
         public const string TC_ID_0103 = "TC_ID_0103"; // UL-782
         public const string TC_ID_0104 = "TC_ID_0104"; // UL-783
-        public const string TC_ID_0105 = "TC_ID_0105"; // UL-784
         public const string TC_ID_0106 = "TC_ID_0106"; // UL-785
         public const string TC_ID_0107 = "TC_ID_0107"; // UL-786
         public const string TC_ID_0108 = "TC_ID_0108"; // UL-787

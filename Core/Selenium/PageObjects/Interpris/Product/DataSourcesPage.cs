@@ -28,6 +28,10 @@ namespace Automation.UI.Core.Selenium.PageObjects.Interpris.Product
         private readonly string btnCancel = "//button[@data-tut=\"import-click-tour\"]/../button";
         private readonly string btnImport = "//button[@data-tut=\"import-click-tour\"]";
         private readonly string divImportedData = "//div[@data-tut=\"dropdown-tour\"]";
+        private readonly string dataSourceName = "//input[@placeholder='Enter data source name']";
+        private readonly string errMessage = "//div[@class =\"Toastify__toast-container Toastify__toast-container--bottom-right\"]";
+        private readonly string deleteButton="//tbody[@class=\"ant-table-tbody\"]//tr[1]//i[@class=\"anticon anticon-delete\"]";
+        private readonly string confirmYesButton = "//div[@class=\"ant-modal-content\"]//button[@class=\"ant-btn ant-btn-primary\"]";
         #endregion
 
         public DataSourcesPage(IWebDriver driver, string baseURL) : base(driver, baseURL) { }
@@ -39,6 +43,10 @@ namespace Automation.UI.Core.Selenium.PageObjects.Interpris.Product
         public BaseWebObject BtnUpload => FindWebElement(btnUpload, true);
         public BaseWebObject ButtonCancel => FindWebElement(btnCancel, true);
         public BaseWebObject ButtonImport => FindWebElement(btnImport, true);
+        public BaseWebObject InputdatasourceName => FindWebElement(dataSourceName, true);
+        public BaseWebObject ErrMessage => FindWebElement(errMessage, true);
+        public BaseWebObject DeleteButton => FindWebElement(deleteButton, true);
+        public BaseWebObject ConfirmYesButton => FindWebElement(confirmYesButton, true);
         #endregion
 
         #region Methods
